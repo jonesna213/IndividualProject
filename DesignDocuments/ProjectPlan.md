@@ -3,14 +3,14 @@
 ### Week 2
 - [x] Create Project Repo on GitHub
 - [x] Create Project structure on intellij and push
-- [ ] Add link to list of indie projects in student repo
-- [ ] Complete Problem Statement and rest of read me file
+- [X] Add link to list of indie projects in student repo
 - [ ] Write Project plan
-- [ ] Weekly Journal Entry
-
+- [x] Weekly Journal Entry
 
 ### Week 4
-
+- [x] Complete problem statement
+- [ ] Complete user stories
+- [ ] Start on screens design
 
 ### Week 7
 

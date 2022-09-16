@@ -11,3 +11,12 @@ Tasks Completed:
  * Created the Directory structure/GitHub repo
  * Chose the project im going to be doing
  * Started writing project plan
+
+### Week 3
+
+9/16 - 
+
+Tasks Completed:
+ * Finished problem statement
+ * Finished User Stories
+ * 
