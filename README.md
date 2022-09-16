@@ -24,7 +24,7 @@ as in put new items in and update the prices based off what there being sold for
  * Dependency Management
    * Maven
 
-### Design
-
+### [Screens Designs](DesignDocuments/ScreenDesign.md)
 ### [Project Plan](DesignDocuments/ProjectPlan.md)
+### [User Stories](DesignDocuments/UserStories.md)
 ### [Journal](Journal.md)

@@ -9,7 +9,7 @@
 
 ### Week 4
 - [x] Complete problem statement
-- [ ] Complete user stories
+- [x] Complete user stories
 - [ ] Start on screens design
 
 ### Week 7

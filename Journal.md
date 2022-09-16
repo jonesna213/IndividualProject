@@ -14,9 +14,10 @@ Tasks Completed:
 
 ### Week 3
 
-9/16 - 
+9/16 - 3 hours
 
 Tasks Completed:
  * Finished problem statement
  * Finished User Stories
- * 
+ * Continued Working on Project plan
+ * Started on Screen Designs
