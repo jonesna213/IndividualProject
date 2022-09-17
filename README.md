@@ -20,7 +20,7 @@ as in put new items in and update the prices based off what there being sold for
  * IDE
    * IntelliJ IDEA
  * CSS
-   * Bootstrap
+   * Bootstrap & custom css
  * Dependency Management
    * Maven
 

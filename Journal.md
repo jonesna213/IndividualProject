@@ -14,10 +14,10 @@ Tasks Completed:
 
 ### Week 3
 
-9/16 - 3 hours
+9/16/2022 - 3 hours
 
 Tasks Completed:
  * Finished problem statement
  * Finished User Stories
- * Continued Working on Project plan
+ * Finished Project plan
  * Started on Screen Designs
