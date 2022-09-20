@@ -23,6 +23,24 @@ as in put new items in and update the prices based off what there being sold for
    * Bootstrap & custom css
  * Dependency Management
    * Maven
+ * Security/Authentication
+   * Tomcat's JDBC Realm Authentication
+ * ORM Framework
+   * Hibernate
+ * Web Services consumed using Java
+   * TBD thinking maybe the captcha thing that's on a lot of websites when signing in if 
+     I can't think of anything else
+ * Data Validation
+   * JQuery form validation
+ * Logging
+   * Log4J2
+ * Hosting
+   * AWS
+ * Independent Research Topic
+   * JQuery form validation
+   * Will add more when needed
+ * Unit Testing
+   * JUnit
 
 ### [Screens Designs](DesignDocuments/ScreenDesign.md)
 ### [Project Plan](DesignDocuments/ProjectPlan.md)

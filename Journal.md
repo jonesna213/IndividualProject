@@ -21,3 +21,11 @@ Tasks Completed:
  * Finished User Stories
  * Finished Project plan
  * Started on Screen Designs
+
+### Week 4
+
+9/19/2022 - 2.5 hours
+
+Tasks Completed:
+ * Finished Screen Designs
+ * Submitted for first checkpoint

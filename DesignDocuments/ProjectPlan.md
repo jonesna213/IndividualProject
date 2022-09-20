@@ -9,10 +9,10 @@
 - [x] Write Project plan
 - [x] Complete problem statement
 - [x] Complete user stories
-- [ ] Start Screens design
+- [x] Start Screens design
 
 ### Week 4
-- [ ] Finish up screens design
+- [x] Finish up screens design
 - [ ] Start on building the homepage/sign in/signup
 
 ### Week 5
