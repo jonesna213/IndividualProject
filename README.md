@@ -3,16 +3,20 @@
 This repository will house my individual project for Enterprise Java.
 
 ### Problem Statement
-For this project I wanted to recreate a project that I built in my Intro
-to PHP w/MySQL class a few semesters ago (here it is on GitHub https://github.com/jonesna213/Auto-Parts-Project). 
-The project is a honda civic auto parts shop where the user is able to create an account, view/search parts, 
-add/remove parts to a cart, and checkout (not an actual payment process, just for show). This project
-doesn't have any real purpose I just think it would be fun to create a most realistic ecommerce
-website as I can since I have gained more knowledge than I had when I built it the first time.
-Some addons I would like to add if I have time after doing the basics are things like saving items
-to a favorites, check fitment (I believe there's api's that do this), some way to update the items
-as in put new items in and update the prices based off what there being sold for.
-
+For this project I started wanting to recreate a project I built in my Intro to PHP w/MySQL class a few semesters
+ago (here it is on GitHub https://github.com/jonesna213/Auto-Parts-Project), but I decided I wanted to change it up a bit. 
+Instead of it being a shopping website I wanted to turn it into a parts look up site. Still for 6th gen Honda 
+Civics, but a site similar to https://pcpartpicker.com where you can search for parts and then for each part 
+it will show you different websites where they are being sold, so comparing prices and finding parts becomes 
+easier. The big challenge for this project is going to be getting all the data from different websites and putting
+it all together into my site. I think its do-able, but going to be difficult. In the site you will be able to
+create and account, view/search for parts and save/un-save parts. For the searching for parts it will be you 
+can search by name or part # also by category like breaks, exhaust, engine, etc. Some possible addons if time allows
+would be to add like a save your vehicle feature where it only shows parts that fit your vehicle (even though
+most 6th gen Civic parts are the same, some are slightly different. Trust me, ive ran into that problem before). 
+My goal would be to get all the parts on the site, but I know that's not completely reasonable for the time frame.
+So, my goal is to get as many as possible and keep expanding it even after class is over because as an owner of a
+6th gen Civic this would be very helpful and some friends of mine would like it as well.
 
 ### Project Technologies/Techniques
  * Database
@@ -20,16 +24,16 @@ as in put new items in and update the prices based off what there being sold for
  * IDE
    * IntelliJ IDEA
  * CSS
-   * Bootstrap & custom css
+   * Bootstrap 5 & custom css
  * Dependency Management
-   * Maven
+   * Maven 3
  * Security/Authentication
-   * Tomcat's JDBC Realm Authentication
+   * Amazon Cognito
  * ORM Framework
-   * Hibernate
+   * Hibernate 5
  * Web Services consumed using Java
-   * TBD thinking maybe the captcha thing that's on a lot of websites when signing in if 
-     I can't think of anything else
+   * Google Captcha for signing in
+   * Possibly more, will update if needed
  * Data Validation
    * JQuery form validation
  * Logging
@@ -38,9 +42,10 @@ as in put new items in and update the prices based off what there being sold for
    * AWS
  * Independent Research Topic
    * JQuery form validation
-   * Will add more when needed
+   * JSoup
+   * Possibly more, will update if needed
  * Unit Testing
-   * JUnit
+   * JUnit 4.12
 
 ### [Screens Designs](DesignDocuments/ScreenDesign.md)
 ### [Project Plan](DesignDocuments/ProjectPlan.md)

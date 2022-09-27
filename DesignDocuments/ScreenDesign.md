@@ -12,20 +12,20 @@ will probably look like.
 ### SignIn Page
 ![SignIn Page](ScreenDesignsImages/SignInPage.PNG)
 
+The next 3 pages (view parts, saved parts, and prices) are more than likely going to change.
+It all really depends on what data im able to scrape off websites.
+
 ### View Parts Page
 ![View Parts Page](ScreenDesignsImages/ViewPartsPage.PNG)
 
+### Saved Parts Page
+![Saved Parts Page](ScreenDesignsImages/SavedPartsPage.PNG)
+
+### See Prices Page
+![See Prices Page](ScreenDesignsImages/SeePricesPage.PNG)
+
 ### View Profile Page
 ![View Profile Page](ScreenDesignsImages/ViewProfilePage.PNG)
-
-### View Cart Page
-![View Cart Page](ScreenDesignsImages/ViewCartPage.PNG)
-
-### Checkout Page
-![Checkout Page](ScreenDesignsImages/CheckoutPage.PNG)
-
-### Receipt Page
-![Receipt Page](ScreenDesignsImages/ReceiptPage.PNG)
 
 ### Sign Out Page
 ![Sign Out Page](ScreenDesignsImages/SignOutPage.PNG)

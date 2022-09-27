@@ -29,3 +29,9 @@ Tasks Completed:
 Tasks Completed:
  * Finished Screen Designs
  * Submitted for first checkpoint
+
+### Week 5
+
+9/27/2022  1.5 hours
+Tasks Completed:
+ * Remade Screens designs and redid readme, project plan and user stories for change in project direction
