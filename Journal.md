@@ -32,6 +32,7 @@ Tasks Completed:
 
 ### Week 5
 
-9/27/2022  1.5 hours
+9/27/2022 -  1.5 hours
+
 Tasks Completed:
  * Remade Screens designs and redid readme, project plan and user stories for change in project direction
