@@ -32,7 +32,14 @@ Tasks Completed:
 
 ### Week 5
 
-9/27/2022 -  1.5 hours
+9/27/2022 -  2.5 hours
 
 Tasks Completed:
  * Remade Screens designs and redid readme, project plan and user stories for change in project direction
+ * Completed homepage with head, header, and footer in separate pages for includes
+
+9/28/2022 - 30 minutes
+
+Tasks Completed:
+ * Started getting a layout of what the ERD will probably look like. Wasn't sure of all fields since im not sure 1,
+what data im going to get from JSoup and 2, I'm not sure what exactly Amazon Cognito is yet.

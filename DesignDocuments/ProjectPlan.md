@@ -16,8 +16,8 @@
 
 ### Week 5
 - [x] Redo screens, user stories, project plan and readme for project change in direction
-- [ ] Start to Build the database design
-- [ ] Start making the main pages
+- [x] Start to Build the database design
+- [x] Start making the main pages
 
 ### Week 6
 - [ ] Get database setup with hibernate

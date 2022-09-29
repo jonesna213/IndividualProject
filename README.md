@@ -51,3 +51,4 @@ So, my goal is to get as many as possible and keep expanding it even after class
 ### [Project Plan](DesignDocuments/ProjectPlan.md)
 ### [User Stories](DesignDocuments/UserStories.md)
 ### [Journal](Journal.md)
+### [ERD](DesignDocuments/ERD.md)
