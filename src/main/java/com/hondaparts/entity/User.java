@@ -21,6 +21,7 @@ public class User {
     private String lastName;
     private String username;
     private String email;
+    private Boolean admin;
 
     /**
      * Instantiates a new User.
@@ -35,12 +36,14 @@ public class User {
      * @param lastName  the last name
      * @param username  the username
      * @param email     the email
+     * @param admin     weather they are an admin or not (t or f)
      */
-    public User(String firstName, String lastName, String username, String email) {
+    public User(String firstName, String lastName, String username, String email, String admin) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.email = email;
+        this.admin = admin.equals("t");
     }
 
     /**
@@ -131,5 +134,23 @@ public class User {
      */
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    /**
+     * Gets admin.
+     *
+     * @return the admin
+     */
+    public Boolean getAdmin() {
+        return admin;
+    }
+
+    /**
+     * Sets admin.
+     *
+     * @param admin the admin
+     */
+    public void setAdmin(Boolean admin) {
+        this.admin = admin;
     }
 }
