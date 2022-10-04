@@ -1,0 +1,24 @@
+Each part has a unique part number. The part number is from the brand. EX (wagner break pads part# OEX465A, Part number
+is the same on every site for that same part with the brand) so orileys and rockauto have the same part but there
+
+Brand is important with part numbers!
+Add a search by brand, year, maybe sub model?
+
+For rock auto, gotta incorporate something for the "add to cart to see price". maybe something like a script that will
+modify it then select the price from the cart. OR just say add to car to see price then they can do the rest.
+
+For images, Im thinking to check if the database has an image for it already and if so discard the image otherwise add
+it to the db. (Only going to have one image for each part, may try to add more in the future, but seems really daunting
+atm so im going to go with 1)
+
+
+For scraping, each site will need its own class since there all designed differently (Goal is to have at least 2 by end of class).
+Maybe have an interface behind them? Atm im thinking to where they have a driver class that will execute them. might
+add admin functionality in the future for doing it on the site.
+
+
+
+
+When displaying parts, if there isnt an image (Might happen, idk yet) just use a default image (no image for this part)
+
+Probobly use aws s3 for the images (maybe links as well as they might get really long, as in there more than 255 chars).
