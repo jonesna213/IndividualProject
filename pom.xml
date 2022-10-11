@@ -21,6 +21,10 @@
     <maven-surefire-plugin-version>2.19</maven-surefire-plugin-version>
     <hibernate-version>5.4.4.Final</hibernate-version>
     <jsoup-version>1.15.3</jsoup-version>
+    <java-jwt-version>3.4.1</java-jwt-version>
+    <json-version>20170516</json-version>
+    <commons-io-version>2.11.0</commons-io-version>
+
   </properties>
   <dependencies>
     <dependency>
@@ -91,6 +95,24 @@
       <groupId>org.jsoup</groupId>
       <artifactId>jsoup</artifactId>
       <version>${jsoup-version}</version>
+    </dependency>
+
+    <!-- for parsing access token -->
+    <dependency>
+      <groupId>com.auth0</groupId>
+      <artifactId>java-jwt</artifactId>
+      <version>${java-jwt-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>${json-version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${commons-io-version}</version>
     </dependency>
   </dependencies>
   <build>

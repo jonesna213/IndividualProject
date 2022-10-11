@@ -51,6 +51,9 @@ crashlytics-build.properties
 fabric.properties
 aws.properties
 
-# hibernate and log4j
+# props files that I do not want shared
 src/main/resources/hibernate.cfg.xml
 src/main/resources/log4j2.properties
+cognito.properties
+jwks.json
+https-instance.config
