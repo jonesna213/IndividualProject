@@ -50,3 +50,7 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 aws.properties
+
+# hibernate and log4j
+src/main/resources/hibernate.cfg.xml
+src/main/resources/log4j2.properties

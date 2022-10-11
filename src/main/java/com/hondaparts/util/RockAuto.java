@@ -1,5 +1,7 @@
 package com.hondaparts.util;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -12,38 +14,45 @@ import java.net.URL;
  * This class is for scraping the RockAuto website for parts
  *
  * Going to give credit where credit is due. Got most info from the jsoup website itself but also had help from
- * https://www.javacodeexamples.com/jsoup-download-images-from-webpage-example/815
+ * https://www.javacodeexamples.com/jsoup-download-images-from-webpage-example/815   For downloading images
  */
 public class RockAuto {
     private static String IMAGE_DESTINATION_FOLDER = "C:/Users/Navy Jones/IdeaProjects/IndividualProject/src/main/resources/partImages";
+    private final Logger logger = LogManager.getLogger(this.getClass());
+
+    public void runRockAutoScrape() {
+        try {
+            Document doc = Jsoup.connect("https://www.rockauto.com/en/catalog/honda,1996,civic,1.6l+l4,1168882,brake+&+wheel+hub,brake+pad,1684").get();
+            Elements parts = doc.select("tbody[id*=listingcontainer]");
+            for (Element part : parts) {
+                //Price
+                String price = part.select("[id~=dprice(\\[\\d+\\]\\[v\\])]").text();
 
 
-    public static void main(String[] args) throws IOException {
-        Document doc = Jsoup.connect("https://www.rockauto.com/en/catalog/honda,1996,civic,1.6l+l4,1168882,brake+&+wheel+hub,brake+pad,1684").get();
-
-        Elements parts = doc.select("tbody[id*=listingcontainer]");
-        for (Element part : parts) {
-            String price = part.select("[id~=dprice(\\[\\d+\\]\\[v\\])]").text();
-
-            System.out.println(price);
-
-            Elements img = part.select("[id~=inlineimg_thumb\\[\\d+\\]]");
-            String strImageURL = img.attr("abs:src");
-
-            //This is so it grabs the full img and not the thumbnail
-            StringBuffer fullStrImgURL = new StringBuffer(strImageURL);
-            fullStrImgURL.setCharAt(strImageURL.length()-5, 'p');
-            downloadImage(strImageURL);
+                //Images
+                Elements img = part.select("[id~=inlineimg_thumb\\[\\d+\\]]");
+                String strImageURL = img.attr("abs:src");
+                /*
+                 * This is so it grabs the full img and not the thumbnail as well as make sure the spaces are %20 instead
+                 * of a space so that the file still gets downloaded
+                 */
+                strImageURL = strImageURL.replaceAll(" ", "%20");
+                StringBuffer fullStrImgURL = new StringBuffer(strImageURL);
+                fullStrImgURL.setCharAt(strImageURL.length()-5, 'p');
+                downloadImage(fullStrImgURL.toString());
+            }
+        } catch (IOException io) {
+            logger.error("Problem with JSoup", io);
         }
     }
 
-    private static void downloadImage(String strImageURL) {
+    private void downloadImage(String strImageURL) {
 
         //get file name from image path
         String strImageName =
                 strImageURL.substring( strImageURL.lastIndexOf("/") + 1 );
 
-        System.out.println("Saving: " + strImageName + ", from: " + strImageURL);
+        logger.info("Saving: " + strImageName + ", from: " + strImageURL);
 
         try {
 
@@ -65,7 +74,7 @@ public class RockAuto {
             //close the stream
             os.close();
 
-            System.out.println("Image saved");
+            logger.info("Image saved");
 
         } catch (IOException e) {
             e.printStackTrace();

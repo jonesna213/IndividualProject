@@ -1,4 +1,5 @@
-property.filepath = /Users/Navy Jones/IdeaProjects/IndividualProject/logs
+#after changing the line below rename the file to log4j2.properties
+property.filepath = enter the path to the cloned dir then /logs at the end like - Desktop/projects/Example/logs
 appenders = console, file, hibernate
 
 appender.console.type = Console
@@ -8,7 +9,7 @@ appender.console.layout.pattern = [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c
 
 appender.file.type = File
 appender.file.name = LOGFILE
-appender.file.fileName=${filepath}/IndividualProject.log
+appender.file.fileName=${filepath}/Project.log
 appender.file.layout.type=PatternLayout
 appender.file.layout.pattern=[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
 
@@ -16,8 +17,8 @@ appender.file.layout.pattern=[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} -
 ## It will delete log files if there are more than 5
 appender.hibernate.type = RollingFile
 appender.hibernate.name = HIBFILE
-appender.hibernate.fileName = ${filepath}/IndividualProjectHibernate.log
-appender.hibernate.filePattern=${filepath}/IndividualProjectHibernate%d{yyyyMMdd HH:mm}.log
+appender.hibernate.fileName = ${filepath}/ProjectHibernate.log
+appender.hibernate.filePattern=${filepath}/ProjectHibernate%d{yyyyMMdd HH:mm}.log
 appender.hibernate.layout.type=PatternLayout
 appender.hibernate.layout.pattern=[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
 appender.hibernate.policies.type = Policies

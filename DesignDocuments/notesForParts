@@ -21,4 +21,4 @@ add admin functionality in the future for doing it on the site.
 
 When displaying parts, if there isnt an image (Might happen, idk yet) just use a default image (no image for this part)
 
-Probobly use aws s3 for the images (maybe links as well as they might get really long, as in there more than 255 chars).
+Probably use aws s3 for the images (maybe links as well as they might get really long, as in there more than 255 chars).
