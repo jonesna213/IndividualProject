@@ -16,8 +16,9 @@
         <property name="hibernate.c3p0.max_statements">50</property>
         <property name="hibernate.c3p0.idle_test_period">3000</property>
         
-        Entities go here. example below. Also change the name of this file to hibernate.cfg.xml (remove this line when done with changes)
-        <mapping class="com.example.entity.Example" />
+        <mapping class="com.hondaparts.entity.User" />
     </session-factory>
 
 </hibernate-configuration>
+
+Once changes are made rename this file to hibernate.cfg.xml and remove this line

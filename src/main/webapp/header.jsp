@@ -5,7 +5,7 @@
     <p class="text-dark small d-inline"><u>Hello, ${user.firstName}</u></p>
   </c:if>
   <c:if test="${user == null}" >
-    <a href="#" class="text-dark small">Sign In/Sign Up</a>
+    <a href="login" class="text-dark small">Sign In/Sign Up</a>
   </c:if>
 </header>
 <c:if test="${user != null}" >
@@ -19,7 +19,7 @@
   <c:if test="${user != null}" >
     <a href="#" class="nav-link text-dark">View Profile</a>
     <a href="#" class="nav-link text-dark">Saved Parts</a>
-    <a href="#" class="nav-link text-light bg-secondary">Sign Out</a>
+    <a href="signOut.jsp" class="nav-link text-light bg-secondary">Sign Out</a>
   </c:if>
 
 </nav>

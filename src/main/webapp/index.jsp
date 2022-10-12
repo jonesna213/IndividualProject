@@ -18,8 +18,10 @@
                     </div>
 
                     <div class="text-center py-3 my-auto">
-                        <a class="btn btn-success homepageButtons" href="#">Create An Account Now</a><br><br>
-                        <p>OR</p>
+                        <c:if test="${user == null}" >
+                            <a class="btn btn-success homepageButtons" href="signUp">Create An Account Now</a><br><br>
+                            <p>OR</p>
+                        </c:if>
                         <a class="btn btn-primary homepageButtons" href="#">Start Browsing Now</a>
                     </div>
                 </div>
