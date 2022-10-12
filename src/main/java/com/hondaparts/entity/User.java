@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 /**
- * User class
+ * The User Object
  *
  * @author Navy Jones
  * @version 1.0 9/28/22

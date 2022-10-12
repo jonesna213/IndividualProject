@@ -46,7 +46,8 @@ what data im going to get from JSoup and 2, I'm not sure what exactly Amazon Cog
 
 ### Week 7
 
-10/11/2022 - 4 hours
+10/11/2022 - 4.5 hours
 Tasks Completed:
  * Implemented aws cognito
  * Got sign in, sign up, and sign out all working great
+ * Completed unit tests for User dao (without the parts many-to-many table)
