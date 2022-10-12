@@ -15,6 +15,8 @@ import java.net.URL;
  *
  * Going to give credit where credit is due. Got most info from the jsoup website itself but also had help from
  * https://www.javacodeexamples.com/jsoup-download-images-from-webpage-example/815   For downloading images
+ *
+ * @author Navy Jones
  */
 public class RockAuto {
     private static String IMAGE_DESTINATION_FOLDER = "C:/Users/Navy Jones/IdeaProjects/IndividualProject/src/main/resources/partImages";

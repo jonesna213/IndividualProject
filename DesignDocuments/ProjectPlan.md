@@ -20,13 +20,13 @@
 - [x] Start making the main pages
 
 ### Week 6
-- [ ] Get database setup with hibernate
-- [ ] Continue working on main pages
-- [ ] Start diving into JSoup to get data
+- [x] Get database setup with hibernate
+- [x] Continue working on main pages
+- [x] Start diving into JSoup to get data
 
 ### Week 7
 - [ ] Unit tests for database done
-- [ ] Log4J is Implemented
+- [x] Log4J is Implemented
 - [ ] Keep working with JSoup (Not sure how long this is going to take)
 
 ### Week 8

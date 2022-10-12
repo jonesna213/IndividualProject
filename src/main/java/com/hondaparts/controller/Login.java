@@ -9,11 +9,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(
+        name = "login",
         urlPatterns = {"/login"}
 )
+/**
+ * This servlet is for redirecting to the aws login page
+ *
+ * @author Navy Jones
+ */
 public class Login extends HttpServlet {
     /**
-     * Route to the aws-hosted cognito login page.
+     * Route to the aws hosted cognito login page.
      * @param req servlet request
      * @param resp servlet response
      * @throws ServletException for servlet exceptions

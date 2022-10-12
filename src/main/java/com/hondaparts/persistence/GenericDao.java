@@ -12,6 +12,11 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 
+/**
+ * This class is for a generic data access object to be created with any entity
+ *
+ * @param <T> the type of entity you want the dao to be for
+ */
 public class GenericDao<T> {
     private Class<T> type;
     private final Logger logger = LogManager.getLogger(this.getClass());

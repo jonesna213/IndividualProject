@@ -52,8 +52,9 @@ fabric.properties
 aws.properties
 
 # props files that I do not want shared
-src/main/resources/hibernate.cfg.xml
-src/main/resources/log4j2.properties
+hibernate.cfg.xml
+log4j2.properties
 cognito.properties
+database.properties
 jwks.json
 https-instance.config

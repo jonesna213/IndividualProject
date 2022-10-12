@@ -1,0 +1,6 @@
+driver=com.mysql.cj.jdbc.Driver
+url=jdbc:mysql://put database ip here
+username=put database username here
+password=put database password here
+
+after making changes remove this line and rename the file to database.properties

@@ -40,9 +40,12 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.stream.Collectors;
 @WebServlet(
+        name = "auth",
         urlPatterns = {"/auth"}
 )
 /**
+ * This class is for authorizing users with cognito
+ *
  * Inspired by: https://stackoverflow.com/questions/52144721/how-to-get-access-token-using-client-credentials-using-java-code
  */
 public class Auth extends HttpServlet {
@@ -56,6 +59,11 @@ public class Auth extends HttpServlet {
     Keys jwks;
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+    /**
+     * Gets the needed cognito info then loads the key.
+     *
+     * @throws ServletException for servlet exception
+     */
     @Override
     public void init() throws ServletException {
         super.init();
@@ -111,8 +119,8 @@ public class Auth extends HttpServlet {
      * Sends the request for a token to Cognito and maps the response
      * @param authRequest the request to the oauth2/token url in cognito
      * @return response from the oauth2/token endpoint which should include id token, access token and refresh token
-     * @throws IOException
-     * @throws InterruptedException
+     * @throws IOException for io exception
+     * @throws InterruptedException for interrupted exception
      */
     private TokenResponse getToken(HttpRequest authRequest) throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
@@ -135,9 +143,9 @@ public class Auth extends HttpServlet {
     /**
      * Get values out of the header to verify the token is legit. If it is legit, get the claims from it, such
      * as username.
-     * @param tokenResponse
-     * @return
-     * @throws IOException
+     * @param tokenResponse the token response
+     * @return the user object
+     * @throws IOException for io exceptions
      */
     private User validate(TokenResponse tokenResponse) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
@@ -147,7 +155,6 @@ public class Auth extends HttpServlet {
         String keyId = tokenHeader.getKid();
         String alg = tokenHeader.getAlg();
 
-        // todo pick proper key from the two - it just so happens that the first one works for my case
         // Use Key's N and E
         BigInteger modulus = new BigInteger(1, org.apache.commons.codec.binary.Base64.decodeBase64(jwks.getKeys().get(0).getN()));
         BigInteger exponent = new BigInteger(1, org.apache.commons.codec.binary.Base64.decodeBase64(jwks.getKeys().get(0).getE()));

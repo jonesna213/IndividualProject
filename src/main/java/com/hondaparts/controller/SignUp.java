@@ -9,11 +9,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(
+        name = "signUp",
         urlPatterns = {"/signUp"}
 )
+/**
+ * This servlet class is for redirecting to the aws signup page
+ *
+ * @author Navy Jones
+ */
 public class SignUp extends HttpServlet {
     /**
-     * Route to the aws-hosted cognito signup page.
+     * Route to the aws hosted cognito signup page.
      * @param req servlet request
      * @param resp servlet response
      * @throws ServletException for servlet exceptions

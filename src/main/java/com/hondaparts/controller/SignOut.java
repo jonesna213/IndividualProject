@@ -6,11 +6,14 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
 @WebServlet(
+        name = "signOut",
         urlPatterns = { "/signOut" }
 )
 
 /**
- This servlet class is for Signing out
+ * This servlet class is for redirecting to the aws sign out page
+ *
+ * @author Navy Jones
  */
 public class SignOut extends HttpServlet {
     /**

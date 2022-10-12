@@ -43,3 +43,10 @@ Tasks Completed:
 Tasks Completed:
  * Started getting a layout of what the ERD will probably look like. Wasn't sure of all fields since im not sure 1,
 what data im going to get from JSoup and 2, I'm not sure what exactly Amazon Cognito is yet.
+
+### Week 7
+
+10/11/2022 - 4 hours
+Tasks Completed:
+ * Implemented aws cognito
+ * Got sign in, sign up, and sign out all working great
