@@ -51,3 +51,9 @@ Tasks Completed:
  * Implemented aws cognito
  * Got sign in, sign up, and sign out all working great
  * Completed unit tests for User dao (without the parts many-to-many table)
+
+10/12/2022 - 30 minutes 
+Tasks Completed:
+ * Updated create script to have all the tables needed (from what I think right now)
+ * Started trying to figure out how to get hibernate working with database with all the relationships (mostly 
+researching, not much code was written sadly)

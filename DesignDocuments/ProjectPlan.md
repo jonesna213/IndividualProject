@@ -27,7 +27,7 @@
 ### Week 7
 - [ ] Unit tests for database done
 - [x] Log4J is Implemented
-- [ ] Keep working with JSoup (Not sure how long this is going to take)
+- [x] Keep working with JSoup (Not sure how long this is going to take)
 
 ### Week 8
 - [ ] Get pages complete (as in design wise, not functionality with db)

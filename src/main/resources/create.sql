@@ -1,6 +1,21 @@
 /*
 Tables were generated from Vertabelo
 */
+ALTER TABLE partsmerchants
+    DROP FOREIGN KEY PartsMerchants_Merchants;
+
+ALTER TABLE partsmerchants
+    DROP FOREIGN KEY PartsMerchants_Parts;
+
+ALTER TABLE parts
+    DROP FOREIGN KEY Parts_Categories;
+
+ALTER TABLE savedparts
+    DROP FOREIGN KEY SavedParts_Parts;
+
+ALTER TABLE savedparts
+    DROP FOREIGN KEY SavedParts_Users;
+
 DROP TABLE categories;
 DROP TABLE merchants;
 DROP TABLE parts;

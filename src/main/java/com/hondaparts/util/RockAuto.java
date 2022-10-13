@@ -1,5 +1,6 @@
 package com.hondaparts.util;
 
+import com.hondaparts.entity.Merchant;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jsoup.Jsoup;
@@ -14,7 +15,7 @@ import java.net.URL;
  * This class is for scraping the RockAuto website for parts
  *
  * Going to give credit where credit is due. Got most info from the jsoup website itself but also had help from
- * https://www.javacodeexamples.com/jsoup-download-images-from-webpage-example/815   For downloading images
+ * https://www.javacodeexamples.com/jsoup-download-images-from-webpage-example/815   For the downloading images method
  *
  * @author Navy Jones
  */
