@@ -3,7 +3,9 @@ package com.hondaparts.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * The User Object
@@ -23,6 +25,12 @@ public class User {
     private String username;
     private String email;
     private Boolean administrator;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "savedparts",
+            joinColumns = {@JoinColumn(name = "user_id") },
+            inverseJoinColumns = {@JoinColumn(name = "parts_id") })
+    private Set<Part> parts = new HashSet<>();
 
     /**
      * Instantiates a new User.
@@ -153,6 +161,24 @@ public class User {
      */
     public void setAdministrator(Boolean administrator) {
         this.administrator = administrator;
+    }
+
+    public Set<Part> getParts() {
+        return parts;
+    }
+
+    public void setParts(Set<Part> parts) {
+        this.parts = parts;
+    }
+
+    public void addPart(Part part) {
+        parts.add(part);
+        part.addUser(this);
+    }
+
+    public void removePart(Part part) {
+        parts.remove(part);
+        part.removeUser(this);
     }
 
     @Override

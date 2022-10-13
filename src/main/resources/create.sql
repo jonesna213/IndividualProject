@@ -40,7 +40,7 @@ CREATE TABLE parts (
     partNumber varchar(100) NOT NULL,
     partDescription text NOT NULL,
     partImageFileLocation varchar(255) NULL,
-    categories_id int NOT NULL,
+    category_id int NOT NULL,
     CONSTRAINT parts_pk PRIMARY KEY (id)
 );
 CREATE TABLE partsmerchants (
@@ -71,7 +71,7 @@ ALTER TABLE partsmerchants ADD CONSTRAINT PartsMerchants_Merchants FOREIGN KEY P
 ALTER TABLE partsmerchants ADD CONSTRAINT PartsMerchants_Parts FOREIGN KEY PartsMerchants_Parts (parts_id)
     REFERENCES parts (id);
 
-ALTER TABLE parts ADD CONSTRAINT Parts_Categories FOREIGN KEY Parts_Categories (categories_id)
+ALTER TABLE parts ADD CONSTRAINT Parts_Categories FOREIGN KEY Parts_Categories (category_id)
     REFERENCES categories (id);
 
 ALTER TABLE savedparts ADD CONSTRAINT SavedParts_Parts FOREIGN KEY SavedParts_Parts (parts_id)

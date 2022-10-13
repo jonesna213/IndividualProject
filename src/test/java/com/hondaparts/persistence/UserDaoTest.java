@@ -1,5 +1,7 @@
 package com.hondaparts.persistence;
 
+import com.hondaparts.entity.Category;
+import com.hondaparts.entity.Part;
 import com.hondaparts.entity.User;
 import com.hondaparts.testUtils.Database;
 import org.junit.jupiter.api.BeforeEach;
@@ -54,6 +56,41 @@ public class UserDaoTest {
         assertNotEquals(0,id);
         User insertedUser = dao.getById(id);
         assertEquals(newUser, insertedUser);
+    }
+
+    /**
+     * Verify successful insert of a saved part
+     */
+    @Test
+    void insertSavedPartSuccess() {
+        GenericDao<Part> partDao = new GenericDao<>(Part.class);
+        GenericDao<Category> catDao = new GenericDao<>(Category.class);
+        Category category = new Category("Brakes");
+        User newUser = new User("testFirstName", "testLastName", "testUsername", "testEmail@email.com", false);
+        Part part = new Part("testBreakPad", "1234", "best break pad", "images/breakpad.jpg");
+        part.setCategory(category);
+
+        int catId = catDao.insert(category);
+        int partId = partDao.insert(part);
+        int userId = dao.insert(newUser);
+
+        newUser.addPart(part);
+
+        dao.saveOrUpdate(newUser);
+
+        assertNotEquals(0,userId);
+        assertNotEquals(0,catId);
+        assertNotEquals(0,partId);
+
+        User insertedUser = dao.getById(userId);
+        Part insertedPart = partDao.getById(partId);
+        Category insertedCat = catDao.getById(catId);
+
+        assertEquals(newUser, insertedUser);
+        assertEquals(category, insertedCat);
+        assertEquals(part, insertedPart);
+
+        assertEquals(newUser.getParts(), insertedUser.getParts());
     }
 
     /**

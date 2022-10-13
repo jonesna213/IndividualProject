@@ -11,7 +11,7 @@ it will show you different websites where they are being sold, so comparing pric
 easier. The big challenge for this project is going to be getting all the data from different websites and putting
 it all together into my site. I think its do-able, but going to be difficult. In the site you will be able to
 create and account, view/search for parts and save/un-save parts. For the searching for parts it will be you 
-can search by name or part # also by category like breaks, exhaust, engine, etc. Some possible addons if time allows
+can search by name or part # also by category like brakes, exhaust, engine, etc. Some possible addons if time allows
 would be to add like a save your vehicle feature where it only shows parts that fit your vehicle (even though
 most 6th gen Civic parts are the same, some are slightly different. Trust me, ive ran into that problem before). 
 My goal would be to get all the parts on the site, but I know that's not completely reasonable for the time frame.
