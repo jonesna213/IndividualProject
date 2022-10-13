@@ -1,8 +1,12 @@
+DELETE FROM savedparts;
 DELETE FROM user;
 DELETE FROM parts;
-DELETE FROM savedparts;
 DELETE FROM categories;
-
+DELETE FROM merchants;
 INSERT INTO user VALUES (1, 'Bobby', 'Joe', 'bobby-joe', 'bobbyjoe@gmail.com', 0);
 INSERT INTO user VALUES (2, 'Chris', 'Franklin', 'frank-chris', 'frank-chris@gmail.com', 0);
 INSERT INTO user VALUES (3, 'Jess', 'Jones', 'jones-jess', 'jones-jess@gmail.com', 0);
+INSERT INTO merchants VALUES (1, 'TestMerchant', 'TestFileLocation.jpg', 'website.com');
+INSERT INTO merchants VALUES (2, 'TestMerchantTwo', 'TestFileLocation.jpg', 'websiteTwo.com');
+INSERT INTO merchants VALUES (3, 'TestMerchantThree', 'TestFileLocation.jpg', 'websiteThree.com');
+INSERT INTO categories VALUES (1, 'Exhaust');

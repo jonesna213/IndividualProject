@@ -29,6 +29,8 @@ public class Part {
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "parts")
     private Set<User> users = new HashSet<>();
 
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "pk.part", cascade=CascadeType.ALL)
+    private Set<PartsMerchants> partsMerchants = new HashSet<>();
 
 
     /**
@@ -37,6 +39,14 @@ public class Part {
     public Part() {
     }
 
+    /**
+     * Instantiates a new Part.
+     *
+     * @param partName              the part name
+     * @param partNumber            the part number
+     * @param partDescription       the part description
+     * @param partImageFileLocation the part image file location
+     */
     public Part(String partName, String partNumber, String partDescription, String partImageFileLocation) {
         this.partName = partName;
         this.partNumber = partNumber;
@@ -44,18 +54,183 @@ public class Part {
         this.partImageFileLocation = partImageFileLocation;
     }
 
+    /**
+     * Instantiates a new Part.
+     *
+     * @param partName              the part name
+     * @param partNumber            the part number
+     * @param partDescription       the part description
+     * @param partImageFileLocation the part image file location
+     * @param category              the category
+     * @param partsMerchants        the parts merchants
+     */
+    public Part(String partName, String partNumber, String partDescription, String partImageFileLocation, Category category, Set<PartsMerchants> partsMerchants) {
+        this.partName = partName;
+        this.partNumber = partNumber;
+        this.partDescription = partDescription;
+        this.partImageFileLocation = partImageFileLocation;
+        this.category = category;
+        this.partsMerchants = partsMerchants;
+    }
+
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * Gets part name.
+     *
+     * @return the part name
+     */
+    public String getPartName() {
+        return partName;
+    }
+
+    /**
+     * Sets part name.
+     *
+     * @param partName the part name
+     */
+    public void setPartName(String partName) {
+        this.partName = partName;
+    }
+
+    /**
+     * Gets part number.
+     *
+     * @return the part number
+     */
+    public String getPartNumber() {
+        return partNumber;
+    }
+
+    /**
+     * Sets part number.
+     *
+     * @param partNumber the part number
+     */
+    public void setPartNumber(String partNumber) {
+        this.partNumber = partNumber;
+    }
+
+    /**
+     * Gets part description.
+     *
+     * @return the part description
+     */
+    public String getPartDescription() {
+        return partDescription;
+    }
+
+    /**
+     * Sets part description.
+     *
+     * @param partDescription the part description
+     */
+    public void setPartDescription(String partDescription) {
+        this.partDescription = partDescription;
+    }
+
+    /**
+     * Gets part image file location.
+     *
+     * @return the part image file location
+     */
+    public String getPartImageFileLocation() {
+        return partImageFileLocation;
+    }
+
+    /**
+     * Sets part image file location.
+     *
+     * @param partImageFileLocation the part image file location
+     */
+    public void setPartImageFileLocation(String partImageFileLocation) {
+        this.partImageFileLocation = partImageFileLocation;
+    }
+
+    /**
+     * Gets users.
+     *
+     * @return the users
+     */
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    /**
+     * Sets users.
+     *
+     * @param users the users
+     */
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+
+    /**
+     * Gets parts merchants.
+     *
+     * @return the parts merchants
+     */
+    public Set<PartsMerchants> getPartsMerchants() {
+        return partsMerchants;
+    }
+
+    /**
+     * Sets parts merchants.
+     *
+     * @param partsMerchants the parts merchants
+     */
+    public void setPartsMerchants(Set<PartsMerchants> partsMerchants) {
+        this.partsMerchants = partsMerchants;
+    }
+
+    /**
+     * Gets category.
+     *
+     * @return the category
+     */
     public Category getCategory() {
         return category;
     }
 
+    /**
+     * Sets category.
+     *
+     * @param category the category
+     */
     public void setCategory(Category category) {
         this.category = category;
     }
 
+    /**
+     * Add user.
+     *
+     * @param user the user
+     */
     public void addUser(User user) {
         users.add(user);
     }
 
+    /**
+     * Remove user.
+     *
+     * @param user the user
+     */
     public void removeUser(User user) {
         users.remove(user);
     }
@@ -65,11 +240,11 @@ public class Part {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Part part = (Part) o;
-        return id == part.id && Objects.equals(partName, part.partName) && Objects.equals(partNumber, part.partNumber) && Objects.equals(partDescription, part.partDescription) && partImageFileLocation.equals(part.partImageFileLocation) && Objects.equals(category, part.category);
+        return id == part.id && Objects.equals(partName, part.partName) && Objects.equals(partNumber, part.partNumber) && Objects.equals(partDescription, part.partDescription) && partImageFileLocation.equals(part.partImageFileLocation) && Objects.equals(category, part.category) && Objects.equals(partsMerchants, part.partsMerchants);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, partName, partNumber, partDescription, partImageFileLocation, category);
+        return Objects.hash(id, partName, partNumber, partDescription, partImageFileLocation, category, partsMerchants);
     }
 }

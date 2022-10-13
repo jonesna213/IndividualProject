@@ -79,3 +79,8 @@ ALTER TABLE savedparts ADD CONSTRAINT SavedParts_Parts FOREIGN KEY SavedParts_Pa
 
 ALTER TABLE savedparts ADD CONSTRAINT SavedParts_Users FOREIGN KEY SavedParts_Users (user_id)
     REFERENCES user (id);
+
+/*
+ Manual Insert statements
+ */
+INSERT INTO categories (category) VALUES ('Brakes');

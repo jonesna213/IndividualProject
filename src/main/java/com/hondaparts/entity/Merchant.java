@@ -3,6 +3,9 @@ package com.hondaparts.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * The Merchant Object.
@@ -20,6 +23,9 @@ public class Merchant {
     private String name;
     private String logoImageFileLocation;
     private String website;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "pk.merchant", cascade=CascadeType.ALL)
+    private Set<PartsMerchants> partsMerchants = new HashSet<>();
 
     /**
      * Instantiates a new Merchant.
@@ -40,4 +46,63 @@ public class Merchant {
         this.website = website;
     }
 
+    public Merchant(String name, String logoImageFileLocation, String website, Set<PartsMerchants> partsMerchants) {
+        this.name = name;
+        this.logoImageFileLocation = logoImageFileLocation;
+        this.website = website;
+        this.partsMerchants = partsMerchants;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLogoImageFileLocation() {
+        return logoImageFileLocation;
+    }
+
+    public void setLogoImageFileLocation(String logoImageFileLocation) {
+        this.logoImageFileLocation = logoImageFileLocation;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public Set<PartsMerchants> getPartsMerchants() {
+        return partsMerchants;
+    }
+
+    public void setPartsMerchants(Set<PartsMerchants> partsMerchants) {
+        this.partsMerchants = partsMerchants;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Merchant merchant = (Merchant) o;
+        return id == merchant.id && Objects.equals(name, merchant.name) && Objects.equals(logoImageFileLocation, merchant.logoImageFileLocation) && Objects.equals(website, merchant.website) && Objects.equals(partsMerchants, merchant.partsMerchants);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, logoImageFileLocation, website, partsMerchants);
+    }
 }
