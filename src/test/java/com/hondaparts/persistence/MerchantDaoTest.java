@@ -1,9 +1,6 @@
 package com.hondaparts.persistence;
 
-import com.hondaparts.entity.Category;
 import com.hondaparts.entity.Merchant;
-import com.hondaparts.entity.Part;
-import com.hondaparts.entity.User;
 import com.hondaparts.testUtils.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

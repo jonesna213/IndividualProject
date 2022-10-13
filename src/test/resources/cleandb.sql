@@ -10,3 +10,5 @@ INSERT INTO merchants VALUES (1, 'TestMerchant', 'TestFileLocation.jpg', 'websit
 INSERT INTO merchants VALUES (2, 'TestMerchantTwo', 'TestFileLocation.jpg', 'websiteTwo.com');
 INSERT INTO merchants VALUES (3, 'TestMerchantThree', 'TestFileLocation.jpg', 'websiteThree.com');
 INSERT INTO categories VALUES (1, 'Exhaust');
+INSERT INTO categories VALUES (2, 'Engine');
+INSERT INTO categories VALUES (3, 'Interior');
