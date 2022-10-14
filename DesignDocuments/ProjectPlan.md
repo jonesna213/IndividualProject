@@ -25,7 +25,7 @@
 - [x] Start diving into JSoup to get data
 
 ### Week 7
-- [ ] Unit tests for database done
+- [x] Unit tests for database done
 - [x] Log4J is Implemented
 - [x] Keep working with JSoup (Not sure how long this is going to take)
 
@@ -35,7 +35,7 @@
 
 ### Week 9
 - [ ] Deployed to AWS
-- [ ] Authentication Implemented
+- [x] Authentication Implemented
 
 ### Week 10
 - [ ] Implement Captcha for sign in (API)

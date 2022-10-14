@@ -52,7 +52,10 @@ public class MerchantDaoTest {
         int id = dao.insert(newMerchant);
         assertNotEquals(0,id);
         Merchant insertedMerchant = dao.getById(id);
-        assertEquals(newMerchant, insertedMerchant);
+        assertEquals(newMerchant.getId(), insertedMerchant.getId());
+        assertEquals(newMerchant.getName(), insertedMerchant.getName());
+        assertEquals(newMerchant.getLogoImageFileLocation(), insertedMerchant.getLogoImageFileLocation());
+        assertEquals(newMerchant.getWebsite(), insertedMerchant.getWebsite());
     }
 
     /**
@@ -65,7 +68,10 @@ public class MerchantDaoTest {
         merchantToUpdate.setName(name);
         dao.saveOrUpdate(merchantToUpdate);
         Merchant merchantAfterUpdate = dao.getById(1);
-        assertEquals(merchantToUpdate, merchantAfterUpdate);
+        assertEquals(merchantToUpdate.getId(), merchantAfterUpdate.getId());
+        assertEquals(merchantToUpdate.getName(), merchantAfterUpdate.getName());
+        assertEquals(merchantToUpdate.getLogoImageFileLocation(), merchantAfterUpdate.getLogoImageFileLocation());
+        assertEquals(merchantToUpdate.getWebsite(), merchantAfterUpdate.getWebsite());
     }
 
     /**

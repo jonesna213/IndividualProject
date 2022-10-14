@@ -60,7 +60,9 @@ Tasks Completed:
  * Started trying to figure out how to get hibernate working with database with all the relationships (mostly 
 researching, not much code was written sadly)
 
-10/13/2022 - 12:56
+10/13/2022 - 5 hours
 
 Tasks Completed:
- * 
+ * Completed getting hibernate working with database for all the relationships
+ * Completed all dao tests (There was a problem with the equals method, so I had to redo a lot of the tests because for
+some reason I was getting either nullPointerException or stackOverflowException with them in the part and merchant classes)

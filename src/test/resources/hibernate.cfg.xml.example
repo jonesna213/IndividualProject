@@ -17,6 +17,10 @@
         <property name="hibernate.c3p0.idle_test_period">3000</property>
         
         <mapping class="com.hondaparts.entity.User" />
+        <mapping class="com.hondaparts.entity.Part" />
+        <mapping class="com.hondaparts.entity.Category" />
+        <mapping class="com.hondaparts.entity.Merchant" />
+        <mapping class="com.hondaparts.entity.PartsMerchants" />
     </session-factory>
 
 </hibernate-configuration>

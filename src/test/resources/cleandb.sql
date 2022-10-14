@@ -1,4 +1,5 @@
 DELETE FROM savedparts;
+DELETE FROM partsmerchants;
 DELETE FROM user;
 DELETE FROM parts;
 DELETE FROM categories;
@@ -12,3 +13,6 @@ INSERT INTO merchants VALUES (3, 'TestMerchantThree', 'TestFileLocation.jpg', 'w
 INSERT INTO categories VALUES (1, 'Exhaust');
 INSERT INTO categories VALUES (2, 'Engine');
 INSERT INTO categories VALUES (3, 'Interior');
+INSERT INTO parts VALUES (1, 'greatExhaust', '12345', 'its a good exhaust', 'notareallocation', 1);
+INSERT INTO parts VALUES (2, 'greatEngine', '54321', 'its a good engine', 'notareallocation', 2);
+INSERT INTO parts VALUES (3, 'greatInteriorPart', '23451', 'its a good interior part', 'notareallocation', 3);

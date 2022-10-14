@@ -1,7 +1,11 @@
 package com.hondaparts.util;
 
+import com.hondaparts.entity.Category;
 import com.hondaparts.entity.Merchant;
 import com.hondaparts.persistence.GenericDao;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class is to be used to manually scrape the websites and update the database.
@@ -11,6 +15,10 @@ import com.hondaparts.persistence.GenericDao;
 public class WebScraping {
 
     public static void main(String[] args) {
+        runRockAuto();
+    }
+
+    private static void runRockAuto() {
         GenericDao<Merchant> merchantDao = new GenericDao<>(Merchant.class);
         Merchant rockAutoMerchant = new Merchant();
         rockAutoMerchant.setName("Rock Auto");
