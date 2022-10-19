@@ -87,12 +87,7 @@ public class UserDaoTest {
 
         assertEquals(newUser, insertedUser);
         assertEquals(category, insertedCat);
-        assertEquals(part.getId(), insertedPart.getId());
-        assertEquals(part.getPartName(), insertedPart.getPartName());
-        assertEquals(part.getPartNumber(), insertedPart.getPartNumber());
-        assertEquals(part.getPartDescription(), insertedPart.getPartDescription());
-        assertEquals(part.getPartImageFileLocation(), insertedPart.getPartImageFileLocation());
-        assertEquals(part.getCategory(), insertedPart.getCategory());
+        assertEquals(part, insertedPart);
 
         assertEquals(newUser.getParts().size(), insertedUser.getParts().size());
     }

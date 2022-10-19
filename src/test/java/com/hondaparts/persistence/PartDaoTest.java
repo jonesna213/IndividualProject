@@ -55,12 +55,7 @@ public class PartDaoTest {
         int id = dao.insert(newPart);
         assertNotEquals(0,id);
         Part insertedPart = dao.getById(id);
-        assertEquals(newPart.getId(), insertedPart.getId());
-        assertEquals(newPart.getPartName(), insertedPart.getPartName());
-        assertEquals(newPart.getPartNumber(), insertedPart.getPartNumber());
-        assertEquals(newPart.getPartDescription(), insertedPart.getPartDescription());
-        assertEquals(newPart.getPartImageFileLocation(), insertedPart.getPartImageFileLocation());
-        assertEquals(newPart.getCategory(), insertedPart.getCategory());
+        assertEquals(newPart, insertedPart);
     }
 
     /**
@@ -91,12 +86,7 @@ public class PartDaoTest {
         assertNotEquals(0,partId);
 
         Part insertedPart = dao.getById(partId);
-        assertEquals(newPart.getId(), insertedPart.getId());
-        assertEquals(newPart.getPartName(), insertedPart.getPartName());
-        assertEquals(newPart.getPartNumber(), insertedPart.getPartNumber());
-        assertEquals(newPart.getPartDescription(), insertedPart.getPartDescription());
-        assertEquals(newPart.getPartImageFileLocation(), insertedPart.getPartImageFileLocation());
-        assertEquals(newPart.getCategory(), insertedPart.getCategory());
+        assertEquals(newPart, insertedPart);
     }
 
     /**
@@ -109,12 +99,7 @@ public class PartDaoTest {
         partToUpdate.setPartName(partName);
         dao.saveOrUpdate(partToUpdate);
         Part partAfterUpdate = dao.getById(1);
-        assertEquals(partToUpdate.getId(), partAfterUpdate.getId());
-        assertEquals(partToUpdate.getPartName(), partAfterUpdate.getPartName());
-        assertEquals(partToUpdate.getPartNumber(), partAfterUpdate.getPartNumber());
-        assertEquals(partToUpdate.getPartDescription(), partAfterUpdate.getPartDescription());
-        assertEquals(partToUpdate.getPartImageFileLocation(), partAfterUpdate.getPartImageFileLocation());
-        assertEquals(partToUpdate.getCategory(), partAfterUpdate.getCategory());
+        assertEquals(partToUpdate, partAfterUpdate);
     }
 
     /**

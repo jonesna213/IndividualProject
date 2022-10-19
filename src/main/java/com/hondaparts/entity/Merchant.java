@@ -3,6 +3,7 @@ package com.hondaparts.entity;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -149,5 +150,16 @@ public class Merchant {
         this.partsMerchants = partsMerchants;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Merchant merchant = (Merchant) o;
+        return id == merchant.id && Objects.equals(name, merchant.name) && Objects.equals(logoImageFileLocation, merchant.logoImageFileLocation) && Objects.equals(website, merchant.website);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, logoImageFileLocation, website);
+    }
 }
