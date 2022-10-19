@@ -69,8 +69,8 @@ some reason I was getting either nullPointerException or stackOverflowException 
 
 ### Week 8
 
-10/18/2022 - 30 minutes
+10/18/2022 - 1 hour
 
 Tasks Completed:
- * Started putting view/edit profile page in (Just going to update database for now)
+ * Got view/edit profile working (Just going to update database for now)
  * implemented JQuery Form validation

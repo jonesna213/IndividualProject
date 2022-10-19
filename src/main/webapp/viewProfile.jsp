@@ -13,7 +13,6 @@
                 <c:if test="${error != null}" >
                     <c:if test="${error == true}" >
                         <h3 class="text-danger">Failed to edit profile, please try again</h3>
-                        <p>${message}</p>
                     </c:if>
                     <c:if test="${error == false}" >
                         <h3 class="text-success">Profile edit was successful</h3>
