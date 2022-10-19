@@ -118,12 +118,18 @@ public class PartDaoTest {
     }
 
     /**
-     * Verify successful delete of a part
+     * Verify successful delete of a part and verifying the users saved parts gets updated aswell
      */
     @Test
     void deleteSuccess() {
-        dao.delete(dao.getById(1));
+        GenericDao<User> userDao = new GenericDao<>(User.class);
+        Part part = dao.getById(1);
+
+        dao.delete(part);
+        User user = userDao.getById(1);
+
         assertNull(dao.getById(1));
+        assertEquals(0, user.getParts().size());
     }
 
     /**

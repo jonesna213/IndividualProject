@@ -16,3 +16,5 @@ INSERT INTO categories VALUES (3, 'Interior');
 INSERT INTO parts VALUES (1, 'greatExhaust', '12345', 'its a good exhaust', 'notareallocation', 1);
 INSERT INTO parts VALUES (2, 'greatEngine', '54321', 'its a good engine', 'notareallocation', 2);
 INSERT INTO parts VALUES (3, 'greatInteriorPart', '23451', 'its a good interior part', 'notareallocation', 3);
+INSERT INTO savedparts VALUES (1, 1);
+INSERT INTO partsmerchants VALUES (1, 1, 'linktoPart', 'cheap');

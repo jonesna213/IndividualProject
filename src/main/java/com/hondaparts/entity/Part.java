@@ -26,7 +26,17 @@ public class Part {
     @ManyToOne
     private Category category;
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "parts")
+    @ManyToMany(fetch = FetchType.EAGER, cascade =
+            {
+                    CascadeType.DETACH,
+                    CascadeType.MERGE,
+                    CascadeType.REFRESH,
+                    CascadeType.PERSIST
+            },
+            targetEntity = User.class)
+    @JoinTable(name = "savedparts",
+            joinColumns = {@JoinColumn(name = "user_id") },
+            inverseJoinColumns = {@JoinColumn(name = "parts_id") })
     private Set<User> users = new HashSet<>();
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "pk.part", cascade=CascadeType.ALL)

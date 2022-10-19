@@ -1,6 +1,7 @@
 package com.hondaparts.persistence;
 
 import com.hondaparts.entity.Merchant;
+import com.hondaparts.entity.Part;
 import com.hondaparts.testUtils.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -75,12 +76,19 @@ public class MerchantDaoTest {
     }
 
     /**
-     * Verify successful delete of a merchant
+     * Verify successful delete of a merchant and verifying the parts stay in the database but the partsmerchants
+     * column gets removed
      */
     @Test
     void deleteSuccess() {
-        dao.delete(dao.getById(1));
+        GenericDao<Part> partDao = new GenericDao<>(Part.class);
+        Merchant merchant = dao.getById(1);
+
+        dao.delete(merchant);
+        Part part = partDao.getById(1);
+
         assertNull(dao.getById(1));
+        assertEquals(0, part.getPartsMerchants().size());
     }
 
     /**

@@ -26,7 +26,14 @@ public class User {
     private String email;
     private Boolean administrator;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade =
+            {
+                    CascadeType.DETACH,
+                    CascadeType.MERGE,
+                    CascadeType.REFRESH,
+                    CascadeType.PERSIST
+            },
+            targetEntity = Part.class)
     @JoinTable(name = "savedparts",
             joinColumns = {@JoinColumn(name = "user_id") },
             inverseJoinColumns = {@JoinColumn(name = "parts_id") })

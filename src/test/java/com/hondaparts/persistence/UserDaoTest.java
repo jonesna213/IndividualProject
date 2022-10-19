@@ -111,12 +111,19 @@ public class UserDaoTest {
     }
 
     /**
-     * Verify successful delete of a user
+     * Verify successful delete of a user and make sure saved parts are deleted but parts stay in database
      */
     @Test
     void deleteSuccess() {
-        dao.delete(dao.getById(1));
+        GenericDao<Part> partDao = new GenericDao<>(Part.class);
+        User user = dao.getById(1);
+
+        dao.delete(user);
+        Part part = partDao.getById(1);
+
         assertNull(dao.getById(1));
+        assertNotNull(part);
+        assertFalse(part.getUsers().contains(user));
     }
 
     /**

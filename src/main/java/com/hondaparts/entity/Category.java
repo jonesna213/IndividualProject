@@ -21,7 +21,7 @@ public class Category {
     private int id;
     private String category;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Part> parts = new HashSet<>();
 
     /**
