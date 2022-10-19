@@ -1,3 +1,7 @@
+.error {
+    color: red;
+}
+
 .homepageButtons {
     padding: 1em 3em;
     border-radius: 1.5em;

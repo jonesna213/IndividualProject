@@ -31,4 +31,5 @@ As a user I want to be able to leave a review and see reviews
 
 ### Misc
 ! As a user I want to be able to view/edit my profile \
-As a user I want to be able to save my vehicle for easy finding parts
+As a user I want to be able to save my vehicle for easy finding parts \
+User profile gets updated on cognito as well as database

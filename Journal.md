@@ -66,3 +66,11 @@ Tasks Completed:
  * Completed getting hibernate working with database for all the relationships
  * Completed all dao tests (There was a problem with the equals method, so I had to redo a lot of the tests because for
 some reason I was getting either nullPointerException or stackOverflowException with them in the part and merchant classes)
+
+### Week 8
+
+10/18/2022 - 30 minutes
+
+Tasks Completed:
+ * Started putting view/edit profile page in (Just going to update database for now)
+ * implemented JQuery Form validation

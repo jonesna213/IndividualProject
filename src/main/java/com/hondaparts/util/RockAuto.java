@@ -1,6 +1,5 @@
 package com.hondaparts.util;
 
-import com.hondaparts.entity.Merchant;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jsoup.Jsoup;
@@ -80,7 +79,7 @@ public class RockAuto {
             logger.info("Image saved");
 
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Error with downloading image", e);
         }
     }
 }
