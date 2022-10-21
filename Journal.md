@@ -75,9 +75,9 @@ Tasks Completed:
  * Got view/edit profile working (Just going to update database for now)
  * implemented JQuery Form validation
 
-10/19/2022 - 1 hour
+10/19/2022 - 1.5 hours
 
 Tasks Completed:
- * Got hibernate working correctly. Thought it was correct before but when a user was deleted it deleted the part
-that was with the user in the saved parts table. Did the same thing with merchants and parts. But its working correctly
-now.
+ * Got hibernate working correctly and updated tests to account for it. Thought it was correct before but when a user 
+was deleted it deleted the part that was with the user in the saved parts table. Did the same thing with merchants and 
+parts. But its working correctly now.

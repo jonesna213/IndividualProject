@@ -15,7 +15,7 @@
   <nav class="nav nav-pills justify-content-start">
 </c:if>
   <a href="index.jsp" class="nav-link text-dark">Home</a>
-  <a href="#" class="nav-link text-dark">View Parts</a>
+  <a href="getAllPartsAndCategories" class="nav-link text-dark">View Parts</a>
   <c:if test="${user != null}" >
     <a href="viewProfile.jsp" class="nav-link text-dark">View Profile</a>
     <a href="#" class="nav-link text-dark">Saved Parts</a>

@@ -1,6 +1,9 @@
 .error {
     color: red;
 }
+.parts {
+    width: 20%;
+}
 
 .homepageButtons {
     padding: 1em 3em;

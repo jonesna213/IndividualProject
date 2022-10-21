@@ -2,9 +2,7 @@ package com.hondaparts.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 /**
  * The Part Object.
@@ -196,8 +194,9 @@ public class Part {
      *
      * @return the parts merchants
      */
-    public Set<PartsMerchants> getPartsMerchants() {
-        return partsMerchants;
+    public List<PartsMerchants> getPartsMerchants() {
+
+        return new ArrayList<>(partsMerchants);
     }
 
     /**
@@ -243,6 +242,22 @@ public class Part {
      */
     public void removeUser(User user) {
         users.remove(user);
+    }
+
+    public String getLowestPrice() {
+        List<Double> priceList = new ArrayList<>();
+        for (PartsMerchants pm:partsMerchants) {
+            String stringPrice = pm.getPrice();
+            if (stringPrice.charAt(0) == '$') {
+                stringPrice = stringPrice.replace("$", "");
+                priceList.add(Double.parseDouble(stringPrice));
+            }
+        }
+
+        Collections.sort(priceList);
+
+        return priceList.get(0).toString();
+
     }
 
     @Override
