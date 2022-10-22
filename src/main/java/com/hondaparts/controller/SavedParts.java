@@ -23,7 +23,7 @@ import java.io.IOException;
  */
 public class SavedParts extends HttpServlet {
     /**
-     * Gets all the parts and categories into the session for view parts page
+     * For saving and un-saving parts
      *
      * @param req servlet request
      * @param resp servlet response
@@ -40,11 +40,17 @@ public class SavedParts extends HttpServlet {
         String partId = req.getParameter("partId");
         Part part = partDao.getById(Integer.parseInt(partId));
 
+        if (part == null) {
+            resp.sendRedirect("viewParts#" + partId + ".jsp");
+        }
         if (req.getParameter("action").equals("save")) {
             user.getParts().add(part);
-        } else {
+        } else if (req.getParameter("action").equals("unsave")) {
             user.getParts().remove(part);
+        } else {
+            resp.sendRedirect("viewParts#" + partId + ".jsp");
         }
+
         userDao.saveOrUpdate(user);
 
         resp.sendRedirect("viewParts#" + partId + ".jsp");

@@ -46,11 +46,16 @@
                         <img src="${part.partImageFileLocation}" class="card-img-top border-bottom" alt="${part.partName}">
                         <div class="card-body">
                             <h5 class="card-title">${part.partName}</h5>
-                            <h6 class="card-subtitle mb-2">$${part.getLowestPrice()}</h6>
+                            <h6 class="card-subtitle mb-2">${part.getLowestPrice()}</h6>
                             <h6 class="card-subtitle mb-2 text-muted">Part #: ${part.partNumber}</h6>
                         </div>
                         <div class="card-footer">
-                            <a href="savedParts?action=save&partId=${part.id}" class="btn btn-secondary mb-2 me-3">Save</a>
+                            <c:if test="${user.getParts().contains(part)}" >
+                                <a href="savedParts?action=unsave&partId=${part.id}" class="btn btn-secondary mb-2 me-3">Un Save</a>
+                            </c:if>
+                            <c:if test="${!user.getParts().contains(part)}" >
+                                <a href="savedParts?action=save&partId=${part.id}" class="btn btn-secondary mb-2 me-3">Save</a>
+                            </c:if>
                             <a href="viewAllPrices?partId=${part.id}" class="btn btn-info mb-2">View All Prices</a>
                         </div>
                     </div>

@@ -256,7 +256,7 @@ public class Part {
 
         Collections.sort(priceList);
 
-        return priceList.get(0).toString();
+        return "$" + priceList.get(0).toString();
 
     }
 

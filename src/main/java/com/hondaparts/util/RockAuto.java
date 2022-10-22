@@ -29,7 +29,31 @@ public class RockAuto {
             for (Element part : parts) {
                 //Price
                 String price = part.select("[id~=dprice(\\[\\d+\\]\\[v\\])]").text();
+                if (price.charAt(0) != '$') {
+                    price = "View all prices to see price";
+                }
+                //Do something with price
 
+                //Had to do this so that I could describe the quality..... Its ugly, I know
+                String qualityOfPart = "";
+                if (part.is("[style=background: #fff3de;]") || part.is("[style=background: #ffe8be;]")) {
+                    qualityOfPart = " Economy ";
+                } else if (part.is("[style=background: #bebeff;]") || part.is("[style=background: #dedeff;]")) {
+                    qualityOfPart = " Daily Driver ";
+                } else if (part.is("[style=background: #cbbecb;]") || part.is("[style=background: #e5dee5;]")) {
+                    qualityOfPart = " Premium ";
+                } else if (part.is("[style=background: #ebe5de;]") || part.is("[style=background: #d8cbbe;]")) {
+                    qualityOfPart = " Heavy Duty ";
+                } else if (part.is("[style=background: #fcdede;]") || part.is("[style=background: #f9bebe;]")) {
+                    qualityOfPart = " Performance ";
+                } else if (part.is("[style=background: #bebebe;]") || part.is("[style=background: #f9bebe;]")) {
+                    qualityOfPart = " Track Use ";
+                }
+
+                //Part name == Manufacture + type of item (Break pad in this case)
+                String partName = part.select("span.listing-final-manufacturer").text() + qualityOfPart + "Break Pads";
+
+                //System.out.println(partName);
 
                 //Images
                 Elements img = part.select("[id~=inlineimg_thumb\\[\\d+\\]]");
@@ -41,7 +65,7 @@ public class RockAuto {
                 strImageURL = strImageURL.replaceAll(" ", "%20");
                 StringBuffer fullStrImgURL = new StringBuffer(strImageURL);
                 fullStrImgURL.setCharAt(strImageURL.length()-5, 'p');
-                downloadImage(fullStrImgURL.toString());
+                //downloadImage(fullStrImgURL.toString());
             }
         } catch (IOException io) {
             logger.error("Problem with JSoup", io);
