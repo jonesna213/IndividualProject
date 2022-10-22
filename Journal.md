@@ -81,3 +81,9 @@ Tasks Completed:
  * Got hibernate working correctly and updated tests to account for it. Thought it was correct before but when a user 
 was deleted it deleted the part that was with the user in the saved parts table. Did the same thing with merchants and 
 parts. But its working correctly now.
+
+10/21/2022 - 2.5 hours
+
+Tasks Completed:
+ * Made progress on view parts page as well as the servlet for it
+ * Made more progress on jsoup for rock auto
