@@ -10,7 +10,7 @@
             <%@include file="header.jsp"%>
             <h3 class="text-decoration-underline text-center pb-3">Your Saved Parts</h3>
 
-            <table class="table table-sm border my-5">
+            <table class="table table-sm border mt-5">
                 <thead>
                     <tr>
                         <th></th>
