@@ -90,7 +90,8 @@ Tasks Completed:
 
 ### Week 9
 
-10/25/2022 825
+10/25/2022 - 1 hour
 
 Tasks Completed:
  * Created saved parts page
+ * Created view prices page

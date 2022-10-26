@@ -30,7 +30,7 @@
 - [x] Keep working with JSoup (Not sure how long this is going to take)
 
 ### Week 8
-- [ ] Get pages complete (as in design wise, not functionality with db)
+- [x] Get pages complete (as in design wise, not functionality with db)
 - [ ] Hopefully have some data from JSoup to put into database
 
 ### Week 9
