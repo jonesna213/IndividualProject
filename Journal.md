@@ -87,3 +87,10 @@ parts. But its working correctly now.
 Tasks Completed:
  * Made progress on view parts page as well as the servlet for it
  * Made more progress on jsoup for rock auto
+
+### Week 9
+
+10/25/2022 825
+
+Tasks Completed:
+ *

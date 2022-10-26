@@ -51,7 +51,7 @@
                         </div>
                         <div class="card-footer">
                             <c:if test="${user.getParts().contains(part)}" >
-                                <a href="savedParts?action=unsave&partId=${part.id}" class="btn btn-secondary mb-2 me-3">Un Save</a>
+                                <a href="savedParts?action=unsave&partId=${part.id}" class="btn btn-secondary mb-2 me-3">UnSave</a>
                             </c:if>
                             <c:if test="${!user.getParts().contains(part)}" >
                                 <a href="savedParts?action=save&partId=${part.id}" class="btn btn-secondary mb-2 me-3">Save</a>
