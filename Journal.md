@@ -95,3 +95,8 @@ Tasks Completed:
 Tasks Completed:
  * Created saved parts page
  * Created view prices page
+
+10/26/2022 - 2.5 hours
+
+Tasks Completed:
+ * Made progress on rock auto jsoup scraping. Think im about ready to start populating database with part info.

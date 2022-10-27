@@ -34,7 +34,7 @@
 - [ ] Hopefully have some data from JSoup to put into database
 
 ### Week 9
-- [ ] Deployed to AWS
+- [ ] Deployed current version to AWS (for practice)
 - [x] Authentication Implemented
 
 ### Week 10
