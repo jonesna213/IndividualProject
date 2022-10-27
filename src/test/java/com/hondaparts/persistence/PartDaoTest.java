@@ -82,7 +82,7 @@ public class PartDaoTest {
         newPart.getPartsMerchants().add(pm);
 
         int partId = dao.insert(newPart);
-
+        pmDao.saveOrUpdate(pm);
         assertNotEquals(0,partId);
 
         Part insertedPart = dao.getById(partId);
