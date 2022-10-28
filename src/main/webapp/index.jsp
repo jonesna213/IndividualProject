@@ -22,7 +22,7 @@
                             <a class="btn btn-success homepageButtons" href="signUp">Create An Account Now</a><br><br>
                             <p>OR</p>
                         </c:if>
-                        <a class="btn btn-primary homepageButtons" href="#">Start Browsing Now</a>
+                        <a class="btn btn-primary homepageButtons" href="getAllPartsAndCategories">Start Browsing Now</a>
                     </div>
                 </div>
                 <%--Image was found here https://wallpapercave.com/civic-ek-wallpapers--%>

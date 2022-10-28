@@ -24,15 +24,17 @@ import java.net.URL;
  * @author Navy Jones
  */
 public class RockAuto {
-    private static String IMAGE_DESTINATION_FOLDER = "/src/main/resources/partImages";
+    private static String IMAGE_DESTINATION_FOLDER = "C:/Users/Navy Jones/IdeaProjects/IndividualProject/src/main/resources/partImages";
     private final Logger logger = LogManager.getLogger(this.getClass());
     private GenericDao<Part> partDao = new GenericDao<>(Part.class);
     private GenericDao<Category> catDao = new GenericDao<>(Category.class);
     private GenericDao<Merchant> merchantDao = new GenericDao<>(Merchant.class);
+    private GenericDao<PartsMerchants> pmDao = new GenericDao<>(PartsMerchants.class);
 
     public void runRockAutoScrape() {
         String url = "https://www.rockauto.com/en/catalog/honda,1996,civic,1.6l+l4,1168882,brake+&+wheel+hub,brake+pad,1684";
         Merchant merchant = merchantDao.getByPropertyEqual("name", "Rock Auto").get(0);
+        Category category = catDao.getById(1);
         try {
             Document doc = Jsoup.connect(url).get();
             Elements parts = doc.select("tbody[id*=listingcontainer]");
@@ -73,13 +75,10 @@ public class RockAuto {
                 strImageURL = strImageURL.replaceAll(" ", "%20");
                 StringBuffer fullStrImgURL = new StringBuffer(strImageURL);
                 fullStrImgURL.setCharAt(strImageURL.length()-5, 'p');
-                //downloadImage(fullStrImgURL.toString());
+                downloadImage(fullStrImgURL.toString());
 
 
                 PartsMerchants pm = new PartsMerchants();
-                pm.setMerchant(merchant);
-                pm.setPrice(price);
-                pm.setLinkToPart(linkToPart);
 
                 //Creating part object and adding to database if its not already there
                 if (partDao.getByPropertyEqual("partNumber", partNumber).size() == 0) {
@@ -87,17 +86,18 @@ public class RockAuto {
                     newPart.setPartNumber(partNumber);
                     newPart.setPartDescription(description);
                     newPart.setPartImageFileLocation(fullStrImgURL.toString());
-                    newPart.setCategory(catDao.getByPropertyEqual("category", "Breaks").get(0));
+                    newPart.setCategory(category);
                     pm.setPart(newPart);
                     newPart.getPartsMerchants().add(pm);
+                    partDao.insert(newPart);
                 } else {
                     pm.setPart(partDao.getByPropertyEqual("partNumber", partNumber).get(0));
                 }
+                pm.setMerchant(merchant);
+                pm.setPrice(price);
+                pm.setLinkToPart(linkToPart);
 
-                //Database stuff here. Think I got it all setup for inserting... double check next time
-
-
-
+                pmDao.saveOrUpdate(pm);
             }
         } catch (IOException io) {
             logger.error("Problem with JSoup", io);

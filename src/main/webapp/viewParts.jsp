@@ -1,8 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="title" value="View Parts" />
-<c:if test="${user == null}" >
-    <c:redirect url = "index.jsp"/>
-</c:if>
 <html lang="en">
     <%@include file="head.jsp"%>
     <body>
@@ -46,7 +43,7 @@
                         <img src="${part.partImageFileLocation}" class="card-img-top border-bottom" alt="${part.partName}">
                         <div class="card-body">
                             <h5 class="card-title">${part.partName}</h5>
-                            <h6 class="card-subtitle mb-2">${part.getLowestPrice()}</h6>
+                            <h6 class="card-subtitle mb-2">${part.getPartsMerchants().get(0).getPrice()}</h6>
                             <h6 class="card-subtitle mb-2 text-muted">Part #: ${part.partNumber}</h6>
                         </div>
                         <div class="card-footer">

@@ -41,18 +41,18 @@ public class SavedParts extends HttpServlet {
         Part part = partDao.getById(Integer.parseInt(partId));
 
         if (part == null) {
-            resp.sendRedirect("viewParts#" + partId + ".jsp");
+            resp.sendRedirect("viewParts.jsp#" + partId);
         }
         if (req.getParameter("action").equals("save")) {
             user.getParts().add(part);
         } else if (req.getParameter("action").equals("unsave")) {
             user.getParts().remove(part);
         } else {
-            resp.sendRedirect("viewParts#" + partId + ".jsp");
+            resp.sendRedirect("viewParts.jsp#" + partId);
         }
 
         userDao.saveOrUpdate(user);
 
-        resp.sendRedirect("viewParts#" + partId + ".jsp");
+        resp.sendRedirect("viewParts.jsp#" + partId);
     }
 }

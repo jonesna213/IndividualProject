@@ -244,20 +244,16 @@ public class Part {
         users.remove(user);
     }
 
-    public String getLowestPrice() {
-        List<Double> priceList = new ArrayList<>();
-        for (PartsMerchants pm:partsMerchants) {
-            String stringPrice = pm.getPrice();
-            if (stringPrice.charAt(0) == '$') {
-                stringPrice = stringPrice.replace("$", "");
-                priceList.add(Double.parseDouble(stringPrice));
-            }
-        }
-
-        Collections.sort(priceList);
-
-        return "$" + priceList.get(0).toString();
-
+    @Override
+    public String toString() {
+        return "Part{" +
+                "id=" + id +
+                ", partName='" + partName + '\'' +
+                ", partNumber='" + partNumber + '\'' +
+                ", partDescription='" + partDescription + '\'' +
+                ", partImageFileLocation='" + partImageFileLocation + '\'' +
+                ", category=" + category +
+                '}';
     }
 
     @Override
