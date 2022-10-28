@@ -47,11 +47,13 @@
                             <h6 class="card-subtitle mb-2 text-muted">Part #: ${part.partNumber}</h6>
                         </div>
                         <div class="card-footer">
-                            <c:if test="${user.getParts().contains(part)}" >
-                                <a href="savedParts?action=unsave&partId=${part.id}" class="btn btn-secondary mb-2 me-3">UnSave</a>
-                            </c:if>
-                            <c:if test="${!user.getParts().contains(part)}" >
-                                <a href="savedParts?action=save&partId=${part.id}" class="btn btn-secondary mb-2 me-3">Save</a>
+                            <c:if test="${user != null}" >
+                                <c:if test="${user.getParts().contains(part)}" >
+                                    <a href="savedParts?action=unsave&partId=${part.id}" class="btn btn-secondary mb-2 me-3">UnSave</a>
+                                </c:if>
+                                <c:if test="${!user.getParts().contains(part)}" >
+                                    <a href="savedParts?action=save&partId=${part.id}" class="btn btn-secondary mb-2 me-3">Save</a>
+                                </c:if>
                             </c:if>
                             <a href="viewAllPrices?partId=${part.id}" class="btn btn-info mb-2">View All Prices</a>
                         </div>

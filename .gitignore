@@ -54,6 +54,7 @@ aws.properties
 # props files that I do not want shared
 hibernate.cfg.xml
 hibernate.cfg.xml.aws
+hibernate.cfg.xml.local
 log4j2.properties
 cognito.properties
 database.properties
