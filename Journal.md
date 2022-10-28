@@ -100,3 +100,12 @@ Tasks Completed:
 
 Tasks Completed:
  * Made progress on rock auto jsoup scraping. Think im about ready to start populating database with part info.
+
+10/28/2022 - 4.5 hours
+
+Tasks Completed:
+ * Got parts inserted into database, FINALLY!!!
+ * Deployed to aws
+ * Configured aws to allow cognito logins
+ * Configured aws database to have current database
+ * Submitted checkpoint 3

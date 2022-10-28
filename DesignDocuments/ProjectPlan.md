@@ -31,10 +31,10 @@
 
 ### Week 8
 - [x] Get pages complete (as in design wise, not functionality with db)
-- [ ] Hopefully have some data from JSoup to put into database
+- [x] Hopefully have some data from JSoup to put into database
 
 ### Week 9
-- [ ] Deployed current version to AWS (for practice)
+- [x] Deployed current version to AWS (for practice)
 - [x] Authentication Implemented
 
 ### Week 10
