@@ -24,7 +24,7 @@ import java.net.URL;
  * @author Navy Jones
  */
 public class RockAuto {
-    private static String IMAGE_DESTINATION_FOLDER = "src/main/resources/partImages";
+    private static String IMAGE_DESTINATION_FOLDER = "src/main/webapp/partImages";
     private final Logger logger = LogManager.getLogger(this.getClass());
     private GenericDao<Part> partDao = new GenericDao<>(Part.class);
     private GenericDao<Category> catDao = new GenericDao<>(Category.class);
@@ -75,7 +75,7 @@ public class RockAuto {
                 strImageURL = strImageURL.replaceAll(" ", "%20");
                 StringBuffer fullStrImgURL = new StringBuffer(strImageURL);
                 fullStrImgURL.setCharAt(strImageURL.length()-5, 'p');
-                String imageLocation = downloadImage(fullStrImgURL.toString());
+                String imageLocation = "partImages/" + downloadImage(fullStrImgURL.toString());
 
 
                 PartsMerchants pm = new PartsMerchants();
@@ -157,6 +157,6 @@ public class RockAuto {
         } catch (IOException e) {
             logger.error("Error with downloading image", e);
         }
-        return IMAGE_DESTINATION_FOLDER + "/" + strImageName;
+        return strImageName;
     }
 }

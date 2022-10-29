@@ -19,7 +19,7 @@ public class WebScraping {
         GenericDao<Merchant> merchantDao = new GenericDao<>(Merchant.class);
         Merchant rockAutoMerchant = new Merchant();
         rockAutoMerchant.setName("Rock Auto");
-        rockAutoMerchant.setLogoImageFileLocation("src/main/resources/merchantsImages/rockAutoLogo.png");
+        rockAutoMerchant.setLogoImageFileLocation("merchantsImages/rockAutoLogo.png");
         rockAutoMerchant.setWebsite("https://www.rockauto.com");
 
         if (merchantDao.getByPropertyEqual("name", rockAutoMerchant.getName()).size() == 0) {

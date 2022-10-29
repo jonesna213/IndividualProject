@@ -9,7 +9,7 @@
             <h3 class="text-decoration-underline text-center">${partToView.partName}</h3>
             <div class="row mt-5">
                 <div class="col-12 col-lg-5">
-                    <img class="w-50" src="${partToView.partImageFileLocation}" alt="">
+                    <img class="w-50" src="${partToView.partImageFileLocation}" alt="${partToView.partName}">
                     <p class="pt-3">Part Number: ${partToView.partNumber}</p>
                     <p class="py-3">Part Name: ${partToView.partName}</p>
                     <p>Description:</p>
