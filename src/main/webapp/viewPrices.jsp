@@ -1,8 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="title" value="View Prices" />
-<c:if test="${user == null}" >
-    <c:redirect url = "index.jsp"/>
-</c:if>
 <html lang="en">
     <%@include file="head.jsp"%>
     <body>

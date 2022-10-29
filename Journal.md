@@ -101,7 +101,7 @@ Tasks Completed:
 Tasks Completed:
  * Made progress on rock auto jsoup scraping. Think im about ready to start populating database with part info.
 
-10/28/2022 - 4.5 hours
+10/28/2022 - 5.5 hours
 
 Tasks Completed:
  * Got parts inserted into database, FINALLY!!!
@@ -109,3 +109,7 @@ Tasks Completed:
  * Configured aws to allow cognito logins
  * Configured aws database to have current database
  * Submitted checkpoint 3
+ * Got view parts jsp looking good on mobile
+ * Got saved parts jsp working
+ * Realized I made a big mistake.... The parts image file location is saved as rock auto's website... not where it's
+located in the project. Merchant logo image is saved correctly but doesn't show up...

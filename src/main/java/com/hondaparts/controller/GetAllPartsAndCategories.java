@@ -34,14 +34,18 @@ public class GetAllPartsAndCategories extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        GenericDao<Part> partDao = new GenericDao<>(Part.class);
-        GenericDao<Category> categoryDao = new GenericDao<>(Category.class);
 
-        List<Part> parts = partDao.getAll();
-        List<Category> categories = categoryDao.getAll();
+        if (session.getAttribute("parts") == null || session.getAttribute("categories") == null) {
+            GenericDao<Part> partDao = new GenericDao<>(Part.class);
+            GenericDao<Category> categoryDao = new GenericDao<>(Category.class);
 
-        session.setAttribute("parts", parts);
-        session.setAttribute("categories", categories);
+            List<Part> parts = partDao.getAll();
+            List<Category> categories = categoryDao.getAll();
+
+            session.setAttribute("parts", parts);
+            session.setAttribute("categories", categories);
+        }
+
         resp.sendRedirect("viewParts.jsp");
     }
 }

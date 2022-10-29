@@ -24,7 +24,7 @@ import java.net.URL;
  * @author Navy Jones
  */
 public class RockAuto {
-    private static String IMAGE_DESTINATION_FOLDER = "C:/Users/Navy Jones/IdeaProjects/IndividualProject/src/main/resources/partImages";
+    private static String IMAGE_DESTINATION_FOLDER = "src/main/resources/partImages";
     private final Logger logger = LogManager.getLogger(this.getClass());
     private GenericDao<Part> partDao = new GenericDao<>(Part.class);
     private GenericDao<Category> catDao = new GenericDao<>(Category.class);
@@ -75,7 +75,7 @@ public class RockAuto {
                 strImageURL = strImageURL.replaceAll(" ", "%20");
                 StringBuffer fullStrImgURL = new StringBuffer(strImageURL);
                 fullStrImgURL.setCharAt(strImageURL.length()-5, 'p');
-                downloadImage(fullStrImgURL.toString());
+                String imageLocation = downloadImage(fullStrImgURL.toString());
 
 
                 PartsMerchants pm = new PartsMerchants();
@@ -85,7 +85,7 @@ public class RockAuto {
                     newPart.setPartName(partName);
                     newPart.setPartNumber(partNumber);
                     newPart.setPartDescription(description);
-                    newPart.setPartImageFileLocation(fullStrImgURL.toString());
+                    newPart.setPartImageFileLocation(imageLocation);
                     newPart.setCategory(category);
                     pm.setPart(newPart);
                     newPart.getPartsMerchants().add(pm);
@@ -124,7 +124,7 @@ public class RockAuto {
         return qualityOfPart;
     }
 
-    private void downloadImage(String strImageURL) {
+    private String downloadImage(String strImageURL) {
 
         //get file name from image path
         String strImageName =
@@ -157,5 +157,6 @@ public class RockAuto {
         } catch (IOException e) {
             logger.error("Error with downloading image", e);
         }
+        return IMAGE_DESTINATION_FOLDER + "/" + strImageName;
     }
 }
