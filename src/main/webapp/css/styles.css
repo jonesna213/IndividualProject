@@ -1,20 +1,21 @@
 .error {
     color: red;
 }
-.parts {
-    width: 20%;
-}
-
 .homepageButtons {
     padding: 1em 3em;
     border-radius: 1.5em;
     font-size: 1.5em;
 }
-
+.parts {
+    width: 20%;
+}
 /*Media Query*/
 @media screen and (max-width: 992px) {
     .homepageButtons {
         padding: 1em 2em;
         font-size: 1em;
+    }
+    .parts {
+        width: 100%;
     }
 }

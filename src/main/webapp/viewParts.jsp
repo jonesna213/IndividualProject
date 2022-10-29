@@ -7,7 +7,9 @@
             <%@include file="header.jsp"%>
             <div class="py-3">
                 <h3 class="d-inline text-decoration-underline">View Parts</h3>
-                <a class="btn btn-secondary float-end" href="savedParts.jsp">View Saved Parts</a>
+                <c:if test="${user != null}" >
+                    <a class="btn btn-secondary float-end" href="savedParts.jsp">View Saved Parts</a>
+                </c:if>
             </div>
 
             <form class="row my-3" action="searchParts" method="get">
@@ -37,7 +39,7 @@
                 </div>
             </form>
             <hr>
-            <div class="d-flex flex-row flex-wrap justify-content-around">
+            <div class="d-flex flex-column flex-lg-row flex-wrap justify-content-around">
                 <c:forEach var="part" items="${parts}">
                     <div class="card mx-3 my-3 parts" id="${part.id}">
                         <img src="${part.partImageFileLocation}" class="card-img-top border-bottom" alt="${part.partName}">

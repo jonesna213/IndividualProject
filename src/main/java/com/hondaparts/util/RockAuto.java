@@ -46,9 +46,9 @@ public class RockAuto {
                     price = "View all prices to see price";
                 }
 
-                //Part name == Manufacture + quality(econ, daily driver, racing) + type of item (Break pad in this case)
+                //Part name == Manufacture + quality(econ, daily driver, racing) + type of item (Brake pad in this case)
                 String qualityOfPart = getQuality(part);
-                String partName = part.select("span.listing-final-manufacturer").text() + qualityOfPart + "Break Pads";
+                String partName = part.select("span.listing-final-manufacturer").text() + qualityOfPart + "Brake Pads";
 
                 //Part Number
                 String partNumber = part.select("[id~=vew_partnumber(\\[\\d+\\])]").text();
