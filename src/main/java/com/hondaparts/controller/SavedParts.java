@@ -3,6 +3,8 @@ package com.hondaparts.controller;
 import com.hondaparts.entity.Part;
 import com.hondaparts.entity.User;
 import com.hondaparts.persistence.GenericDao;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,6 +42,7 @@ public class SavedParts extends HttpServlet {
         String partId = req.getParameter("partId");
         Part part = partDao.getById(Integer.parseInt(partId));
 
+        String redirectUrl = "viewParts.jsp#" + partId;
         if (part == null) {
             resp.sendRedirect("viewParts.jsp#" + partId);
         }
@@ -47,12 +50,15 @@ public class SavedParts extends HttpServlet {
             user.getParts().add(part);
         } else if (req.getParameter("action").equals("unsave")) {
             user.getParts().remove(part);
+        } else if (req.getParameter("action").equals("remove")) {
+            user.getParts().remove(part);
+            redirectUrl = "savedParts.jsp";
         } else {
             resp.sendRedirect("viewParts.jsp#" + partId);
         }
 
         userDao.saveOrUpdate(user);
 
-        resp.sendRedirect("viewParts.jsp#" + partId);
+        resp.sendRedirect(redirectUrl);
     }
 }

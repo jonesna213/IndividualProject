@@ -18,7 +18,7 @@
   <a href="getAllPartsAndCategories" class="nav-link text-dark">View Parts</a>
   <c:if test="${user != null}" >
     <a href="viewProfile.jsp" class="nav-link text-dark">View Profile</a>
-    <a href="#" class="nav-link text-dark">Saved Parts</a>
+    <a href="savedParts.jsp" class="nav-link text-dark">Saved Parts</a>
     <a href="signOut.jsp" class="nav-link text-light bg-secondary">Sign Out</a>
   </c:if>
 
