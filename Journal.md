@@ -113,3 +113,4 @@ Tasks Completed:
  * Got saved parts jsp working
  * Realized I made a big mistake.... The parts image file location is saved as rock auto's website... not where it's
 located in the project. Merchant logo image is saved correctly but doesn't show up...
+ * Fixed images problem after some debugging I just decided to put them in the webapp dir
