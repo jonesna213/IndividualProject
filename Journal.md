@@ -114,3 +114,11 @@ Tasks Completed:
  * Realized I made a big mistake.... The parts image file location is saved as rock auto's website... not where it's
 located in the project. Merchant logo image is saved correctly but doesn't show up...
  * Fixed images problem after some debugging I just decided to put them in the webapp dir
+
+### Week 10
+
+This week was not as productive as the last few weeks. I've been working on the team project as well as other classes,
+so I wasn't able to do much for this project this week. I did start doing some research on how to implement google's recaptcha.
+I'm thinking since I cant directly change the UI of cognito im going to have it go to a recaptcha page before it goes to
+auth then if they pass the recaptcha it will then go to auth and continue signing in. I am going to look into this a 
+little more to see if there's an easier/nicer way to do this because I feel like this might cause some problems with cognito.
