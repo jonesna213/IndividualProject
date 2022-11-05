@@ -118,7 +118,8 @@ located in the project. Merchant logo image is saved correctly but doesn't show 
 ### Week 10
 
 This week was not as productive as the last few weeks. I've been working on the team project as well as other classes,
-so I wasn't able to do much for this project this week. I did start doing some research on how to implement google's recaptcha.
-I'm thinking since I cant directly change the UI of cognito im going to have it go to a recaptcha page before it goes to
-auth then if they pass the recaptcha it will then go to auth and continue signing in. I am going to look into this a 
-little more to see if there's an easier/nicer way to do this because I feel like this might cause some problems with cognito.
+so I wasn't able to do much for this project this week. I did do the recommendations from checkpoint 3, and I did 
+start doing some research on how to implement google's recaptcha. I'm thinking since I cant directly change the UI of 
+cognito im going to have it go to a recaptcha page before it goes to auth then if they pass the recaptcha it will then 
+go to auth and continue signing in. I am going to look into this a little more to see if there's an easier/nicer way to 
+do this because I feel like this might cause some problems with cognito.

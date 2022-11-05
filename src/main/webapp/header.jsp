@@ -2,7 +2,7 @@
   <a href="index.jsp" class="text-dark"><img src="images/HondaLogo.jpg" alt="Honda Logo"></a>
   <h1>Honda Auto Parts</h1>
   <c:if test="${user != null}" >
-    <p class="text-dark small d-inline"><u>Hello, ${user.firstName}</u></p>
+    <p class="text-dark small d-inline"><u><a href="viewProfile.jsp" class="link-dark">Hello, ${user.firstName}</a></u></p>
   </c:if>
   <c:if test="${user == null}" >
     <a href="login" class="text-dark small">Sign In/Sign Up</a>
