@@ -1,10 +1,6 @@
 package com.hondaparts.util;
 
-import com.hondaparts.entity.Category;
-import com.hondaparts.entity.Merchant;
-import com.hondaparts.entity.Part;
-import com.hondaparts.entity.PartsMerchants;
-import com.hondaparts.persistence.GenericDao;
+import com.hondaparts.persistence.NewPart;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jsoup.Jsoup;
@@ -13,7 +9,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.*;
-import java.net.URL;
 
 /**
  * This class is for scraping the RockAuto website for parts
@@ -24,48 +19,34 @@ import java.net.URL;
  * @author Navy Jones
  */
 public class RockAuto {
-    private static String IMAGE_DESTINATION_FOLDER = "src/main/webapp/partImages";
+    private ImageDownloader downloader = new ImageDownloader();
+    private NewPart newPart = new NewPart();
     private final Logger logger = LogManager.getLogger(this.getClass());
-    private GenericDao<Part> partDao = new GenericDao<>(Part.class);
-    private GenericDao<Category> catDao = new GenericDao<>(Category.class);
-    private GenericDao<Merchant> merchantDao = new GenericDao<>(Merchant.class);
-    private GenericDao<PartsMerchants> pmDao = new GenericDao<>(PartsMerchants.class);
 
-    public void runRockAutoScrape() {
+    public void runRockAutoScrape(String categoryName) {
         String url = "https://www.rockauto.com/en/catalog/honda,1996,civic,1.6l+l4,1168882,brake+&+wheel+hub,brake+pad,1684";
-        Merchant merchant = merchantDao.getByPropertyEqual("name", "Rock Auto").get(0);
-        Category category = catDao.getById(1);
         try {
             Document doc = Jsoup.connect(url).get();
             Elements parts = doc.select("tbody[id*=listingcontainer]");
             for (Element part : parts) {
-                Part newPart = new Part();
-                //Price
                 String price = part.select("[id~=dprice(\\[\\d+\\]\\[v\\])]").text();
+                //If the price isnt there tell them to go to the part page
                 if (price.charAt(0) != '$') {
                     price = "View all prices to see price";
                 }
 
-                //Part name == Manufacture + quality(econ, daily driver, racing) + type of item (Brake pad in this case)
                 String qualityOfPart = getQuality(part);
                 String partName = part.select("span.listing-final-manufacturer").text() + qualityOfPart + "Brake Pads";
-
-                //Part Number
                 String partNumber = part.select("[id~=vew_partnumber(\\[\\d+\\])]").text();
-
-                //Link to part
                 String linkToPart = part.select("a.ra-btn-moreinfo").attr("href");
+                //Some parts don't have their own page so, use the url and have the id of the part for a direct link to the part
                 if (linkToPart.length() < 1) {
                     linkToPart = url + "#" + part.attr("id");
                     linkToPart = linkToPart.replace("[", "%5B");
                     linkToPart = linkToPart.replace("]", "%5D");
                 }
 
-                //Description ish
                 String description = part.select("span.span-link-underline-remover").text() + ". More info on merchant's website.";
-
-
-                //Images
                 Elements img = part.select("[id~=inlineimg_thumb\\[\\d+\\]]");
                 String strImageURL = img.attr("abs:src");
                 /*
@@ -75,29 +56,9 @@ public class RockAuto {
                 strImageURL = strImageURL.replaceAll(" ", "%20");
                 StringBuffer fullStrImgURL = new StringBuffer(strImageURL);
                 fullStrImgURL.setCharAt(strImageURL.length()-5, 'p');
-                String imageLocation = "partImages/" + downloadImage(fullStrImgURL.toString());
+                String imageLocation = "partImages/" + downloader.downloadImage(fullStrImgURL.toString());
 
-
-                PartsMerchants pm = new PartsMerchants();
-
-                //Creating part object and adding to database if its not already there
-                if (partDao.getByPropertyEqual("partNumber", partNumber).size() == 0) {
-                    newPart.setPartName(partName);
-                    newPart.setPartNumber(partNumber);
-                    newPart.setPartDescription(description);
-                    newPart.setPartImageFileLocation(imageLocation);
-                    newPart.setCategory(category);
-                    pm.setPart(newPart);
-                    newPart.getPartsMerchants().add(pm);
-                    partDao.insert(newPart);
-                } else {
-                    pm.setPart(partDao.getByPropertyEqual("partNumber", partNumber).get(0));
-                }
-                pm.setMerchant(merchant);
-                pm.setPrice(price);
-                pm.setLinkToPart(linkToPart);
-
-                pmDao.saveOrUpdate(pm);
+                newPart.insertNewPart(partName, partNumber, description, imageLocation, linkToPart, price, categoryName, "Rock Auto");
             }
         } catch (IOException io) {
             logger.error("Problem with JSoup", io);
@@ -122,41 +83,5 @@ public class RockAuto {
         }
 
         return qualityOfPart;
-    }
-
-    private String downloadImage(String strImageURL) {
-
-        //get file name from image path
-        String strImageName =
-                strImageURL.substring( strImageURL.lastIndexOf("/") + 1 );
-
-        logger.info("Saving: " + strImageName + ", from: " + strImageURL);
-
-        try {
-
-            //open the stream from URL
-            URL urlImage = new URL(strImageURL);
-            InputStream in = urlImage.openStream();
-
-            byte[] buffer = new byte[4096];
-            int n = -1;
-
-            OutputStream os =
-                    new FileOutputStream( IMAGE_DESTINATION_FOLDER + "/" + strImageName );
-
-            //write bytes to the output stream
-            while ( (n = in.read(buffer)) != -1 ){
-                os.write(buffer, 0, n);
-            }
-
-            //close the stream
-            os.close();
-
-            logger.info("Image saved");
-
-        } catch (IOException e) {
-            logger.error("Error with downloading image", e);
-        }
-        return strImageName;
     }
 }

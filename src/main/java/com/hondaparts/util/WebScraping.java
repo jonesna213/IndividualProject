@@ -12,7 +12,23 @@ import com.hondaparts.persistence.GenericDao;
 public class WebScraping {
 
     public static void main(String[] args) {
-        runRockAuto();
+        //runRockAuto();
+        runOReilly();
+    }
+
+    private static void runOReilly() {
+        GenericDao<Merchant> merchantDao = new GenericDao<>(Merchant.class);
+        Merchant oReillyMerchant = new Merchant();
+        oReillyMerchant.setName("O'Reilly Auto Parts");
+        oReillyMerchant.setLogoImageFileLocation("merchantsImages/oreillyLogo.jpg");
+        oReillyMerchant.setWebsite("https://www.oreillyauto.com");
+
+        if (merchantDao.getByPropertyEqual("name", oReillyMerchant.getName()).size() == 0) {
+            merchantDao.insert(oReillyMerchant);
+        }
+
+        OReilly oReilly = new OReilly();
+        oReilly.runOReillyScrape("Brakes"); //This is temporary, will eventually need params for what parts to scrape
     }
 
     private static void runRockAuto() {
@@ -27,6 +43,6 @@ public class WebScraping {
         }
 
         RockAuto rockAuto = new RockAuto();
-        rockAuto.runRockAutoScrape(); //This is temporary, will eventually need params for what parts to scrape
+        rockAuto.runRockAutoScrape("Brakes"); //This is temporary, will eventually need params for what parts to scrape
     }
 }

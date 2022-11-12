@@ -123,3 +123,13 @@ start doing some research on how to implement google's recaptcha. I'm thinking s
 cognito im going to have it go to a recaptcha page before it goes to auth then if they pass the recaptcha it will then 
 go to auth and continue signing in. I am going to look into this a little more to see if there's an easier/nicer way to 
 do this because I feel like this might cause some problems with cognito.
+
+### Week 11
+
+This was another not so productive week...
+
+11/11/2022 - 4 hours
+
+Tasks Completed:
+ * Made a bit of progress on the OReilly web scraping
+ * Did research on recaptcha with cognito and didn't find anything that would help... Might have to find a different api.
