@@ -28,7 +28,7 @@ public class WebScraping {
         }
 
         OReilly oReilly = new OReilly();
-        oReilly.runOReillyScrape("Brakes"); //This is temporary, will eventually need params for what parts to scrape
+        oReilly.runOReillyScrape("Brakes");
     }
 
     private static void runRockAuto() {

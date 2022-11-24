@@ -133,3 +133,12 @@ This was another not so productive week...
 Tasks Completed:
  * Made a bit of progress on the OReilly web scraping
  * Did research on recaptcha with cognito and didn't find anything that would help... Might have to find a different api.
+
+
+### Week 12
+
+11/18/2022 - 2 hours
+
+Tasks Completed:
+ * Got OReilly working for the brake pads which gives a duplicate part which demonstrates everything works.
+ * Fixed ImageDownloader

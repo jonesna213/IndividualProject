@@ -24,28 +24,24 @@ public class OReilly {
             for (Element part : parts) {
 
                 String partName = part.select("h2.js-product-name").text();
-                String partNumber = part.select("dd.part-info__code").text();
+                String partNumber = part.select("dd.js-ga-product-line-number").text();
                 String fit = part.select("div.fit-descriptions").text();
                 String description = part.select("div.attribute_wrap").text();
-                /*
-                 * Look for Installation, Noise-Reducing, Wear
-                 *
-                 *
-                 * FIX DESCRIPTION
-                 */
-                System.out.println(description);
 
                 if (!fit.equals("View All Applications")) {
                     description = fit + " " + description;
                 }
+
                 Elements img = part.select("img.product__image");
-                String imgURL = img.attr("abs:src");
+                String imgURL = "https:" + img.attr("data-original");
                 imgURL.replace("medium", "extralarge");
-                //String imgLocation = downloader.downloadImage(imgURL);
-                String linkToPart = part.select("").text();
+
+
+                String imgLocation = downloader.downloadImage(imgURL);
+                String linkToPart = "https://www.oreillyauto.com/" + part.select("a.js-product-link").attr("href");
                 String price = part.select("strong.pricing_price").text();
 
-
+                newPart.insertNewPart(partName, partNumber, description, imgLocation, linkToPart, price, categoryName, "O'Reilly Auto Parts");
             }
         } catch (IOException io) {
             logger.error("Problem with JSoup", io);

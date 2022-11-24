@@ -46,6 +46,6 @@ public class ImageDownloader {
         } catch (IOException e) {
             logger.error("Error with downloading image", e);
         }
-        return strImageName;
+        return "partImages/" + strImageName;
     }
 }
