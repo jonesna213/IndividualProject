@@ -1,4 +1,4 @@
-package com.hondaparts.util;
+package com.hondaparts.webscraping;
 
 import com.hondaparts.entity.Merchant;
 import com.hondaparts.persistence.GenericDao;

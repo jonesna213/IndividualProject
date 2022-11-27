@@ -31,8 +31,13 @@
                             <tr>
                                 <td class="w-25"><img class="img-thumbnail" src="${merchant.getMerchant().getLogoImageFileLocation()}" alt="${merchant.getMerchant().getName()} Logo"></td>
                                 <td class="align-middle">${merchant.getMerchant().getName()}</td>
-                                <td class="align-middle">${merchant.getMerchant().getWebsite()}</td>
-                                <td class="align-middle">${merchant.getPrice()}</td>
+                                <td class="align-middle"><a href="${merchant.getMerchant().getWebsite()}" target="_blank" rel="noopener noreferrer">${merchant.getMerchant().getWebsite()}</a></td>
+                                <c:if test="${merchant.getPrice().equals('View all prices to see price')}" >
+                                    <td class="align-middle">View on merchant site</td>
+                                </c:if>
+                                <c:if test="${!merchant.getPrice().equals('View all prices to see price')}" >
+                                    <td class="align-middle">${merchant.getPrice()}</td>
+                                </c:if>
                                 <td class="align-middle"><a class="btn btn-success" href="${merchant.getLinkToPart()}" target="_blank" rel="noopener noreferrer">Buy</a></td>
                             </tr>
                         </c:forEach>

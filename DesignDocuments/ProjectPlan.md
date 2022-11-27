@@ -38,7 +38,7 @@
 - [x] Authentication Implemented
 
 ### Week 10
-- [ ] Implement Captcha for sign in (API)
+- [ ] Implement an API
 
 ### Week 11-14
 - [ ] Finish up project

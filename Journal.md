@@ -142,3 +142,18 @@ Tasks Completed:
 Tasks Completed:
  * Got OReilly working for the brake pads which gives a duplicate part which demonstrates everything works.
  * Fixed ImageDownloader
+
+### Week 13
+
+11/25/2022 - 1 hour
+
+Tasks Completed:
+ * Touched up a few things
+ * Changed up web scraping directory
+
+11/26/2022 - 3 hours
+
+Tasks Completed:
+ * Got searching for parts working
+ * I believe all the site functionality is done now. (Besides some api that I have yet to find/implement)
+ * Uploaded current code to aws and updated aws database with new parts

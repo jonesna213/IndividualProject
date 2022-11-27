@@ -1,6 +1,7 @@
-package com.hondaparts.util;
+package com.hondaparts.webscraping;
 
 import com.hondaparts.persistence.NewPart;
+import com.hondaparts.util.ImageDownloader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jsoup.Jsoup;
