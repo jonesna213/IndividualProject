@@ -54,8 +54,12 @@ public class PartsMerchantsId implements java.io.Serializable{
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         PartsMerchantsId that = (PartsMerchantsId) o;
         return Objects.equals(part, that.part) && Objects.equals(merchant, that.merchant);
     }

@@ -40,6 +40,7 @@ public class ImageDownloader {
 
             //close the stream
             os.close();
+            in.close();
 
             logger.info("Image saved");
 

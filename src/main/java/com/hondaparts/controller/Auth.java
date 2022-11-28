@@ -49,14 +49,14 @@ import java.util.stream.Collectors;
  * Inspired by: https://stackoverflow.com/questions/52144721/how-to-get-access-token-using-client-credentials-using-java-code
  */
 public class Auth extends HttpServlet {
-    String CLIENT_ID;
-    String CLIENT_SECRET;
-    String OAUTH_URL;
-    String LOGIN_URL;
-    String REDIRECT_URL;
-    String REGION;
-    String POOL_ID;
-    Keys jwks;
+    private String CLIENT_ID;
+    private String CLIENT_SECRET;
+    private String OAUTH_URL;
+    private String LOGIN_URL;
+    private String REDIRECT_URL;
+    private String REGION;
+    private String POOL_ID;
+    private Keys jwks;
     private final Logger logger = LogManager.getLogger(this.getClass());
 
     /**
@@ -231,10 +231,9 @@ public class Auth extends HttpServlet {
 
         String encoding = Base64.getEncoder().encodeToString(keys.getBytes());
 
-        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(OAUTH_URL))
+        return HttpRequest.newBuilder().uri(URI.create(OAUTH_URL))
                 .headers("Content-Type", "application/x-www-form-urlencoded", "Authorization", "Basic " + encoding)
                 .POST(HttpRequest.BodyPublishers.ofString(form)).build();
-        return request;
     }
 
     /**

@@ -35,7 +35,7 @@ public class OReilly {
 
                 Elements img = part.select("img.product__image");
                 String imgURL = "https:" + img.attr("data-original");
-                imgURL.replace("medium", "extralarge");
+                imgURL = imgURL.replace("medium", "extralarge");
 
 
                 String imgLocation = downloader.downloadImage(imgURL);

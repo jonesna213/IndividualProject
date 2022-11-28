@@ -258,8 +258,12 @@ public class Part {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Part part = (Part) o;
         return id == part.id && Objects.equals(partName, part.partName) && Objects.equals(partNumber, part.partNumber) && Objects.equals(partDescription, part.partDescription) && Objects.equals(partImageFileLocation, part.partImageFileLocation);
     }

@@ -6,10 +6,10 @@ import com.hondaparts.entity.Part;
 import com.hondaparts.entity.PartsMerchants;
 
 public class NewPart {
-    GenericDao<Part> partDao = new GenericDao<>(Part.class);
-    GenericDao<Category> catDao = new GenericDao<>(Category.class);
-    GenericDao<Merchant> merchantDao = new GenericDao<>(Merchant.class);
-    GenericDao<PartsMerchants> pmDao = new GenericDao<>(PartsMerchants.class);
+    private GenericDao<Part> partDao = new GenericDao<>(Part.class);
+    private GenericDao<Category> catDao = new GenericDao<>(Category.class);
+    private GenericDao<Merchant> merchantDao = new GenericDao<>(Merchant.class);
+    private GenericDao<PartsMerchants> pmDao = new GenericDao<>(PartsMerchants.class);
 
     public void insertNewPart(String partName, String partNumber, String description, String imageLocation, String linkToPart, String price, String categoryName, String merchantName) {
         Part newPart = new Part();

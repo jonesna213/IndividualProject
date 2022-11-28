@@ -23,18 +23,17 @@ import java.util.Properties;
  * @author Navy Jones
  */
 public class ApplicationStartup extends HttpServlet implements PropertiesLoader {
-    public Properties properties;
     private final Logger logger = LogManager.getLogger(this.getClass());
-    public static String CLIENT_ID;
-    public static String LOGIN_URL;
-    public static String SIGNUP_URL;
-    public static String SIGN_OUT_URL;
-    public static String REDIRECT_URL;
-    public static String SIGN_OUT_REDIRECT_URL;
-    public static String CLIENT_SECRET;
-    public static String OAUTH_URL;
-    public static String REGION;
-    public static String POOL_ID;
+    private static String CLIENT_ID;
+    private static String LOGIN_URL;
+    private static String SIGNUP_URL;
+    private static String SIGN_OUT_URL;
+    private static String REDIRECT_URL;
+    private static String SIGN_OUT_REDIRECT_URL;
+    private static String CLIENT_SECRET;
+    private static String OAUTH_URL;
+    private static String REGION;
+    private static String POOL_ID;
 
     /**
      * This method sets up the initialization of the application.
@@ -43,6 +42,7 @@ public class ApplicationStartup extends HttpServlet implements PropertiesLoader 
     public void init() throws ServletException {
         super.init();
         ServletContext context = getServletContext();
+        Properties properties;
         try {
             properties = loadProperties("/cognito.properties");
             CLIENT_ID = properties.getProperty("client.id");

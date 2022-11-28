@@ -1,8 +1,6 @@
 package com.hondaparts.controller;
 
-import com.hondaparts.entity.Category;
 import com.hondaparts.entity.Part;
-import com.hondaparts.entity.User;
 import com.hondaparts.persistence.GenericDao;
 
 import javax.servlet.ServletException;
