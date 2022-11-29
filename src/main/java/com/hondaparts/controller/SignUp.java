@@ -20,6 +20,7 @@ import java.io.IOException;
 public class SignUp extends HttpServlet {
     /**
      * Route to the aws hosted cognito signup page.
+     *
      * @param req servlet request
      * @param resp servlet response
      * @throws ServletException for servlet exceptions

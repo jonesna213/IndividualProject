@@ -1,6 +1,6 @@
 package com.hondaparts.webscraping;
 
-import com.hondaparts.persistence.NewPart;
+import com.hondaparts.persistence.NewParts;
 import com.hondaparts.util.ImageDownloader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,11 +11,21 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
+/**
+ * This class is for web scraping OReilly Auto Parts.
+ *
+ * @author Navy Jones
+ */
 public class OReilly {
-    private ImageDownloader downloader = new ImageDownloader();
-    private NewPart newPart = new NewPart();
+    private final ImageDownloader downloader = new ImageDownloader();
+    private final NewParts newParts = new NewParts();
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+    /**
+     * Runs the scrape.
+     *
+     * @param categoryName the name of the category for the part getting scraped
+     */
     public void runOReillyScrape(String categoryName) {
         String url = "https://www.oreillyauto.com/shop/b/brakes/brake-pads---shoes/a349129f45da/v/a/6008/automotive-car-1996-honda-civic";
 
@@ -42,7 +52,7 @@ public class OReilly {
                 String linkToPart = "https://www.oreillyauto.com/" + part.select("a.js-product-link").attr("href");
                 String price = part.select("strong.pricing_price").text();
 
-                newPart.insertNewPart(partName, partNumber, description, imgLocation, linkToPart, price, categoryName, "O'Reilly Auto Parts");
+                newParts.insertNewPart(partName, partNumber, description, imgLocation, linkToPart, price, categoryName, "O'Reilly Auto Parts");
             }
         } catch (IOException io) {
             logger.error("Problem with JSoup", io);

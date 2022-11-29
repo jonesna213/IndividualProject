@@ -157,3 +157,11 @@ Tasks Completed:
  * Got searching for parts working
  * I believe all the site functionality is done now. (Besides some api that I have yet to find/implement)
  * Uploaded current code to aws and updated aws database with new parts
+
+### Week 14
+
+11/28/2022 - 1 hour
+
+Tasks Completed:
+ * Went through current code and made sure I had all java doc and comments were necessary
+ * Refactored some code

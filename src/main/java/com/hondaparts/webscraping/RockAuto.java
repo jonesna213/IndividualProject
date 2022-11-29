@@ -1,6 +1,6 @@
 package com.hondaparts.webscraping;
 
-import com.hondaparts.persistence.NewPart;
+import com.hondaparts.persistence.NewParts;
 import com.hondaparts.util.ImageDownloader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,16 +14,18 @@ import java.io.*;
 /**
  * This class is for scraping the RockAuto website for parts
  *
- * Going to give credit where credit is due. Got most info from the jsoup website itself but also had help from
- * https://www.javacodeexamples.com/jsoup-download-images-from-webpage-example/815   For the downloading images method
- *
  * @author Navy Jones
  */
 public class RockAuto {
-    private ImageDownloader downloader = new ImageDownloader();
-    private NewPart newPart = new NewPart();
+    private final ImageDownloader downloader = new ImageDownloader();
+    private final NewParts newParts = new NewParts();
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+    /**
+     * Runs the scrape.
+     *
+     * @param categoryName the name of the category for the part being scraped
+     */
     public void runRockAutoScrape(String categoryName) {
         String url = "https://www.rockauto.com/en/catalog/honda,1996,civic,1.6l+l4,1168882,brake+&+wheel+hub,brake+pad,1684";
         try {
@@ -59,15 +61,22 @@ public class RockAuto {
                 fullStrImgURL.setCharAt(strImageURL.length()-5, 'p');
                 String imageLocation = "partImages/" + downloader.downloadImage(fullStrImgURL.toString());
 
-                newPart.insertNewPart(partName, partNumber, description, imageLocation, linkToPart, price, categoryName, "Rock Auto");
+                newParts.insertNewPart(partName, partNumber, description, imageLocation, linkToPart, price, categoryName, "Rock Auto");
             }
         } catch (IOException io) {
             logger.error("Problem with JSoup", io);
         }
     }
 
-    //Had to do this so that I could describe the quality..... Its ugly, I know. (Might be able to refactor later)
+    /**
+     * Gets the quality of a part.
+     *
+     * @param part the current part
+     * @return a string containing the quality of the part
+     */
     private String getQuality(Element part) {
+
+        //Had to do this so that I could describe the quality..... Its ugly, I know. (Might be able to refactor later)
         String qualityOfPart = "";
         if (part.is("[style=background: #fff3de;]") || part.is("[style=background: #ffe8be;]")) {
             qualityOfPart = " Economy ";

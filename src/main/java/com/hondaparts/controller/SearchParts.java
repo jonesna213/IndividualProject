@@ -34,7 +34,6 @@ public class SearchParts extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         GenericDao<Part> partDao = new GenericDao<>(Part.class);
         HttpSession session = req.getSession();
-        session.removeAttribute("parts");
 
         String searchTerm = req.getParameter("searchTerm");
         String searchBy = req.getParameter("searchBy");
@@ -47,12 +46,12 @@ public class SearchParts extends HttpServlet {
             parts = partDao.getByPropertyLike("partNumber", searchTerm);
         }
 
-        //filter by category
+        //Filter by category
         if (category != 0 && parts != null) {
             parts.removeIf(part -> part.getCategory().getId() != category);
         }
 
-        //See if its not a search all
+        //See if it's not a search all
         if (!searchTerm.equals("")) {
             session.setAttribute("searchedFor", searchTerm);
         }

@@ -17,7 +17,7 @@ import javax.servlet.annotation.*;
  */
 public class SignOut extends HttpServlet {
     /**
-     *  Handles HTTP GET requests.
+     *  For signing out
      *
      *@param  req                   the HttpServletRequest object
      *@param  resp                   the HttpServletResponse object

@@ -48,11 +48,11 @@ public class User {
     /**
      * Instantiates a new User.
      *
-     * @param firstName the first name
-     * @param lastName  the last name
-     * @param username  the username
-     * @param email     the email
-     * @param administrator     weather they are an admin or not
+     * @param firstName     the first name
+     * @param lastName      the last name
+     * @param username      the username
+     * @param email         the email
+     * @param administrator weather they are an admin or not
      */
     public User(String firstName, String lastName, String username, String email, Boolean administrator) {
         this.firstName = firstName;
@@ -170,19 +170,39 @@ public class User {
         this.administrator = administrator;
     }
 
+    /**
+     * Gets parts.
+     *
+     * @return the parts
+     */
     public Set<Part> getParts() {
         return parts;
     }
 
+    /**
+     * Sets parts.
+     *
+     * @param parts the parts
+     */
     public void setParts(Set<Part> parts) {
         this.parts = parts;
     }
 
+    /**
+     * Add part.
+     *
+     * @param part the part
+     */
     public void addPart(Part part) {
         parts.add(part);
         part.addUser(this);
     }
 
+    /**
+     * Remove part.
+     *
+     * @param part the part
+     */
     public void removePart(Part part) {
         parts.remove(part);
         part.removeUser(this);

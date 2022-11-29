@@ -9,10 +9,23 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
 
+/**
+ * This class is for downloading part's images.
+ *
+ * Inspired by https://www.javacodeexamples.com/jsoup-download-images-from-webpage-example/815
+ *
+ * @author Navy Jones
+ */
 public class ImageDownloader {
-    private static String IMAGE_DESTINATION_FOLDER = "src/main/webapp/partImages";
+    private static final String IMAGE_DESTINATION_FOLDER = "src/main/webapp/partImages";
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+    /**
+     * Downloads the image
+     *
+     * @param strImageURL the url of the image
+     * @return the location of the image in the directory structure
+     */
     public String downloadImage(String strImageURL) {
 
         //get file name from image path
