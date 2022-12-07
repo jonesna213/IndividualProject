@@ -102,6 +102,13 @@ public class Auth extends HttpServlet {
                     HttpSession session = req.getSession();
                     session.setAttribute("user", user);
                     dispatcher = req.getRequestDispatcher("index.jsp");
+
+                    if (user.getZip() == null) {
+                        session.setAttribute("noZip", true);
+                        dispatcher = req.getRequestDispatcher("viewProfile.jsp");
+                    } else {
+                       //add code to get weather from api
+                    }
                 }
 
             } catch (IOException e) {

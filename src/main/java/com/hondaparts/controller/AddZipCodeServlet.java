@@ -12,17 +12,17 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(
-        name = "editProfileServlet",
-        urlPatterns = {"/editProfileServlet"}
+        name = "addZipCodeServlet",
+        urlPatterns = {"/addZipCodeServlet"}
 )
 /**
- * This servlet is for editing a profile
+ * This servlet is for adding a zip code to a user.
  *
  * @author Navy Jones
  */
-public class EditProfileServlet extends HttpServlet {
+public class AddZipCodeServlet extends HttpServlet {
     /**
-     * Edit a user's profile
+     * Add zip code to user
      *
      * @param req servlet request
      * @param resp servlet response
@@ -35,26 +35,22 @@ public class EditProfileServlet extends HttpServlet {
         GenericDao<User> dao = new GenericDao<>(User.class);
 
         User user = (User) session.getAttribute("user");
-        String firstName = req.getParameter("firstName");
-        String lastName = req.getParameter("lastName");
-        String email = req.getParameter("email");
         String zip = req.getParameter("zip");
-        boolean error = true;
+        boolean zipError = false;
+        String redirectUrl = "index.jsp";
 
-        user.setFirstName(firstName);
-        user.setLastName(lastName);
-        user.setEmail(email);
-        user.setZip(zip);
-
-        dao.saveOrUpdate(user);
-
-        if (dao.getById(user.getId()).equals(user)) {
-            error = false;
+        //Verify its a real zip code
+        if () {
+            user.setZip(zip);
+            dao.saveOrUpdate(user);
+        } else {
+            zipError = true;
+            redirectUrl = "viewProfile.jsp";
         }
 
         session.setAttribute("user", user);
-        session.setAttribute("error", error);
+        session.setAttribute("zipError", zipError);
 
-        resp.sendRedirect("viewProfile.jsp");
+        resp.sendRedirect(redirectUrl);
     }
 }

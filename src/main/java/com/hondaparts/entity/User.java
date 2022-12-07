@@ -25,6 +25,7 @@ public class User {
     private String username;
     private String email;
     private Boolean administrator;
+    private String zip;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade =
             {
@@ -168,6 +169,24 @@ public class User {
      */
     public void setAdministrator(Boolean administrator) {
         this.administrator = administrator;
+    }
+
+    /**
+     * Gets zip.
+     *
+     * @return the zip
+     */
+    public String getZip() {
+        return zip;
+    }
+
+    /**
+     * Sets zip.
+     *
+     * @param zip the zip
+     */
+    public void setZip(String zip) {
+        this.zip = zip;
     }
 
     /**

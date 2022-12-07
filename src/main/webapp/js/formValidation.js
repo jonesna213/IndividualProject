@@ -7,7 +7,8 @@ $().ready(function() {
             email: {
                 required: true,
                 email: true
-            }
+            },
+            zip: "required"
         },
 
         messages: {
@@ -16,7 +17,8 @@ $().ready(function() {
             email: {
                 required: "Email is required.",
                 email: "Please enter a valid email."
-            }
+            },
+            zip: "Please enter a zip code"
         },
 
         submitHandler: function(form) {
