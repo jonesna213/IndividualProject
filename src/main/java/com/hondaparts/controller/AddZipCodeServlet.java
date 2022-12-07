@@ -2,6 +2,7 @@ package com.hondaparts.controller;
 
 import com.hondaparts.entity.User;
 import com.hondaparts.persistence.GenericDao;
+import com.hondaparts.persistence.WeatherDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,23 +34,25 @@ public class AddZipCodeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         GenericDao<User> dao = new GenericDao<>(User.class);
+        WeatherDao weatherDao = new WeatherDao();
 
         User user = (User) session.getAttribute("user");
         String zip = req.getParameter("zip");
-        boolean zipError = false;
         String redirectUrl = "index.jsp";
 
         //Verify its a real zip code
-        if () {
+        String temp = weatherDao.getTemperature(zip);
+        if (temp != null) {
             user.setZip(zip);
             dao.saveOrUpdate(user);
+            session.setAttribute("temperature", temp);
+            session.removeAttribute("noZip");
         } else {
-            zipError = true;
             redirectUrl = "viewProfile.jsp";
+            session.setAttribute("zipError", true);
         }
 
         session.setAttribute("user", user);
-        session.setAttribute("zipError", zipError);
 
         resp.sendRedirect(redirectUrl);
     }

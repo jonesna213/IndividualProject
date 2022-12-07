@@ -165,3 +165,14 @@ Tasks Completed:
 Tasks Completed:
  * Went through current code and made sure I had all java doc and comments were necessary
  * Refactored some code
+
+
+### Week 15
+
+12/7/2022 - 1.5 hours 513
+
+Tasks Completed:
+ * Chose to use a weather api to display the weather in the header. I couldn't find an api that would make sense with
+the rest of the project/add to the rest of the project, so I just decided that I should at least have some type of api.
+ * Got weather dao set up as well as the api's java classes.
+ * Changed the database and related to have a zip column for the api.
