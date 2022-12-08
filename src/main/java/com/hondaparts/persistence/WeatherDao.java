@@ -49,7 +49,6 @@ public class WeatherDao {
             logger.error("Json exception:", e);
         }
 
-        logger.info("Temp: " + temp);
         return temp;
     }
 

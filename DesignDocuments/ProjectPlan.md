@@ -38,10 +38,10 @@
 - [x] Authentication Implemented
 
 ### Week 10
-- [ ] Implement an API
+- [x] Implement an API
 
 ### Week 11-14
-- [ ] Finish up project
+- [x] Finish up project
 - [ ] Try to automate the JSoup process for easy updating
 - [ ] If time add in non MVP stuff
 
