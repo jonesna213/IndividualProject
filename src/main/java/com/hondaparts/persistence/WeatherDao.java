@@ -24,6 +24,11 @@ public class WeatherDao {
     public String getTemperature(String zip) {
         Location location = getLocation(zip);
 
+        //if it's not a real zip code
+        if (location == null) {
+            return null;
+        }
+
         String lat = String.valueOf(location.getPostalCodes().get(0).getLat());
         String lng = String.valueOf(location.getPostalCodes().get(0).getLng());
 
@@ -32,16 +37,19 @@ public class WeatherDao {
                 client.target("http://api.geonames.org/findNearByWeatherJSON?lat=" + lat + "&lng=" + lng + "&username=njones11");
         String response = target.request(MediaType.APPLICATION_JSON_TYPE).get(String.class);
         ObjectMapper mapper = new ObjectMapper();
-        Weather weather = null;
+        Weather weather;
         String temp = null;
 
         try {
             weather = mapper.readValue(response, Weather.class);
-            temp = weather.getWeatherObservation().getTemperature();
+            logger.info("Weather: " + weather);
+            //Converting to fahrenheit
+            temp = String.valueOf((Double.parseDouble(weather.getWeatherObservation().getTemperature()) * 1.8) + 32);
         } catch (JsonProcessingException e) {
             logger.error("Json exception:", e);
         }
 
+        logger.info("Temp: " + temp);
         return temp;
     }
 
@@ -51,7 +59,7 @@ public class WeatherDao {
      * @param zip the zip code
      * @return a location object
      */
-    public Location getLocation(String zip) {
+    private Location getLocation(String zip) {
         Client client = ClientBuilder.newClient();
         WebTarget target =
                 client.target("http://api.geonames.org/postalCodeSearchJSON?username=njones11&postalcode=" +
@@ -62,10 +70,14 @@ public class WeatherDao {
 
         try {
             location = mapper.readValue(response, Location.class);
+            if (location.getPostalCodes().size() == 0) {
+                location = null;
+            }
         } catch (JsonProcessingException e) {
             logger.error("Json exception:", e);
         }
 
+        logger.info("Location: " + location);
         return location;
     }
 }

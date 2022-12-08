@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hondaparts.auth.*;
 import com.hondaparts.entity.User;
 import com.hondaparts.persistence.GenericDao;
+import com.hondaparts.persistence.WeatherDao;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -100,14 +101,16 @@ public class Auth extends HttpServlet {
                 user = validate(tokenResponse);
                 if (user != null) {
                     HttpSession session = req.getSession();
+                    WeatherDao weatherDao = new WeatherDao();
                     session.setAttribute("user", user);
                     dispatcher = req.getRequestDispatcher("index.jsp");
 
-                    if (user.getZip() == null) {
+                    if (user.getZip() == null || user.getZip().equals("")) {
                         session.setAttribute("noZip", true);
                         dispatcher = req.getRequestDispatcher("viewProfile.jsp");
                     } else {
-                       //add code to get weather from api
+                       String temp = weatherDao.getTemperature(user.getZip());
+                       session.setAttribute("temperature", temp);
                     }
                 }
 

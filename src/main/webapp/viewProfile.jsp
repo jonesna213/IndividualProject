@@ -9,10 +9,13 @@
         <div class="container">
             <%@include file="header.jsp"%>
             <div class="w-50 mx-auto">
-                <h2 class="text-decoration-underline">View Profile</h2>
                 <c:if test="${noZip != null}" >
                     <c:if test="${noZip == true}" >
-                        <h3 class="text-danger">Please enter a zip code.</h3>
+                        <h2 class="text-decoration-underline">Please enter your zip code</h2>
+                        <c:if test="${zipError == true}" >
+                            <h3 class="text-danger">Please enter a valid zip code</h3>
+                            <c:remove var="zipError" scope="session"/>
+                        </c:if>
                             <form action="addZipCodeServlet" method="post" id="editProfileForm">
                                 <div class="form-group my-3">
                                     <label for="zip" class="fw-bold">Zip Code</label>
@@ -26,6 +29,7 @@
                     </c:if>
                 </c:if>
                 <c:if test="${noZip == null}" >
+                    <h2 class="text-decoration-underline">View Profile</h2>
                     <c:if test="${error != null}" >
                         <c:if test="${error == true}" >
                             <h3 class="text-danger">Failed to edit profile, please try again</h3>
@@ -52,6 +56,10 @@
                             <input type="email" class="form-control"
                                    name="email" id="email" value="${user.email}"/>
                         </div>
+                        <c:if test="${zipError == true}" >
+                            <h3 class="text-danger">Please enter a valid zip code</h3>
+                            <c:remove var="zipError" scope="session"/>
+                        </c:if>
                         <div class="form-group my-3">
                             <label for="zip" class="fw-bold">Zip Code</label>
                             <input type="text" class="form-control"

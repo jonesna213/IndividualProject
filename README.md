@@ -32,8 +32,7 @@ So, my goal is to get as many as possible and keep expanding it even after class
  * ORM Framework
    * Hibernate 5
  * Web Services consumed using Java
-   * Google Captcha for signing in
-   * Possibly more, will update if needed
+   * Geo Names weather api
  * Data Validation
    * JQuery form validation
  * Logging
@@ -43,7 +42,6 @@ So, my goal is to get as many as possible and keep expanding it even after class
  * Independent Research Topic
    * JQuery form validation
    * JSoup
-   * Possibly more, will update if needed
  * Unit Testing
    * JUnit 4.12
 

@@ -50,6 +50,7 @@ public class UserDaoTest {
     @Test
     void insertSuccess() {
         User newUser = new User("testFirstName", "testLastName", "testUsername", "testEmail@email.com", false);
+        newUser.setZip("53589");
 
         int id = dao.insert(newUser);
         assertNotEquals(0,id);
@@ -66,6 +67,7 @@ public class UserDaoTest {
         GenericDao<Category> catDao = new GenericDao<>(Category.class);
         Category category = new Category("Brakes");
         User newUser = new User("testFirstName", "testLastName", "testUsername", "testEmail@email.com", false);
+        newUser.setZip("53589");
         Part part = new Part("testBreakPad", "1234", "best break pad", "images/breakpad.jpg");
         part.setCategory(category);
 

@@ -9,6 +9,9 @@
   </c:if>
 </header>
 <c:if test="${user != null}" >
+  <div class="d-flex flex-row justify-content-end">
+    <p class="fw-bold">${temperature}&#x2109;</p>
+  </div>
   <nav class="nav nav-pills justify-content-between">
 </c:if>
 <c:if test="${user == null}" >

@@ -2,6 +2,7 @@ package com.hondaparts.controller;
 
 import com.hondaparts.entity.User;
 import com.hondaparts.persistence.GenericDao;
+import com.hondaparts.persistence.WeatherDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,6 +34,7 @@ public class EditProfileServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         GenericDao<User> dao = new GenericDao<>(User.class);
+        WeatherDao weatherDao = new WeatherDao();
 
         User user = (User) session.getAttribute("user");
         String firstName = req.getParameter("firstName");
@@ -41,15 +43,23 @@ public class EditProfileServlet extends HttpServlet {
         String zip = req.getParameter("zip");
         boolean error = true;
 
-        user.setFirstName(firstName);
-        user.setLastName(lastName);
-        user.setEmail(email);
-        user.setZip(zip);
+        //Verify its a real zip code
+        String temp = weatherDao.getTemperature(zip);
+        if (temp != null) {
+            user.setFirstName(firstName);
+            user.setLastName(lastName);
+            user.setEmail(email);
+            user.setZip(zip);
+            dao.saveOrUpdate(user);
 
-        dao.saveOrUpdate(user);
+            if (dao.getById(user.getId()).equals(user)) {
+                error = false;
+            }
 
-        if (dao.getById(user.getId()).equals(user)) {
-            error = false;
+            session.setAttribute("temperature", temp);
+            session.removeAttribute("noZip");
+        } else {
+            session.setAttribute("zipError", true);
         }
 
         session.setAttribute("user", user);

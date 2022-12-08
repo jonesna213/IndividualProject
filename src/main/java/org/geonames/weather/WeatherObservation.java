@@ -28,6 +28,9 @@ public class WeatherObservation{
 	@JsonProperty("datetime")
 	private String datetime;
 
+	@JsonProperty("seaLevelPressure")
+	private double seaLevelPressure;
+
 	@JsonProperty("countryCode")
 	private String countryCode;
 
@@ -116,6 +119,14 @@ public class WeatherObservation{
 		return datetime;
 	}
 
+	public void setSeaLevelPressure(double seaLevelPressure){
+		this.seaLevelPressure = seaLevelPressure;
+	}
+
+	public double getSeaLevelPressure(){
+		return seaLevelPressure;
+	}
+
 	public void setCountryCode(String countryCode){
 		this.countryCode = countryCode;
 	}
@@ -192,6 +203,7 @@ public class WeatherObservation{
 			",dewPoint = '" + dewPoint + '\'' + 
 			",cloudsCode = '" + cloudsCode + '\'' + 
 			",datetime = '" + datetime + '\'' + 
+			",seaLevelPressure = '" + seaLevelPressure + '\'' + 
 			",countryCode = '" + countryCode + '\'' + 
 			",temperature = '" + temperature + '\'' + 
 			",humidity = '" + humidity + '\'' + 
