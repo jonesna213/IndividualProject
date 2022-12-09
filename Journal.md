@@ -166,7 +166,6 @@ Tasks Completed:
  * Went through current code and made sure I had all java doc and comments were necessary
  * Refactored some code
 
-
 ### Week 15
 
 12/7/2022 - 3.5 hours
@@ -177,5 +176,10 @@ the rest of the project/add to the rest of the project, so I just decided that I
  * Got weather dao set up as well as the api's java classes. Couldn't create unit tests because the results will be 
 different each time its used... it's a weather api.
  * Changed the database and related to have a zip column for the api.
- * Fully implemented weather api and deployed new version of project to aws
- * As of now I believe all the actual website stuff is complete besides adding more parts from jsoup scraping
+ * Fully implemented weather api and deployed new version of project to aws.
+ * As of now I believe all the actual website stuff is complete besides adding more parts from jsoup scraping.
+
+12/9/2022 - 
+
+Tasks Completed:
+ * Created unit tests for New Part class which is used with the web scraping classes.
