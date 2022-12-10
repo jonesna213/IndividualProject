@@ -50,3 +50,4 @@ So, my goal is to get as many as possible and keep expanding it even after class
 ### [User Stories](DesignDocuments/UserStories.md)
 ### [Journal](Journal.md)
 ### [ERD](DesignDocuments/ERD.md)
+### [Link to Presentation](https://youtu.be/1OLS7qOrUlU)
