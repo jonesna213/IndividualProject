@@ -179,7 +179,16 @@ different each time its used... it's a weather api.
  * Fully implemented weather api and deployed new version of project to aws.
  * As of now I believe all the actual website stuff is complete besides adding more parts from jsoup scraping.
 
-12/9/2022 - 
+12/9/2022 - 1 hour
 
 Tasks Completed:
  * Created unit tests for New Part class which is used with the web scraping classes.
+
+
+### Week 16
+
+12/14/2022 - 30 mins
+
+Tasks Completed:
+ * Went through all code and made sure comments were there
+ * Started working on bug where when searching something and clicking the save/unsave button. it removes the parts variable...

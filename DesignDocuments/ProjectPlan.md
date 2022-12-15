@@ -46,10 +46,10 @@
 - [ ] If time add in non MVP stuff
 
 ### Week 15
-- [ ] Final Presentation
-- [ ] Create video, add video link to readme.md
-- [ ] Finalize all documentation
-- [ ] Code quality check
+- [x] Final Presentation
+- [x] Create video, add video link to readme.md
+- [x] Finalize all documentation
+- [x] Code quality check
 
 ### Week 16
 - [ ] Final touches before code complete

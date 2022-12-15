@@ -3,6 +3,8 @@ package com.hondaparts.controller;
 import com.hondaparts.entity.Part;
 import com.hondaparts.entity.User;
 import com.hondaparts.persistence.GenericDao;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,6 +24,7 @@ import java.io.IOException;
  * @author Navy Jones
  */
 public class SavedParts extends HttpServlet {
+    private final Logger logger = LogManager.getLogger(this.getClass());
     /**
      * For saving and un-saving parts
      *
@@ -48,9 +51,11 @@ public class SavedParts extends HttpServlet {
         }
         switch (action) {
             case "save":
+                logger.debug("Saved");
                 user.getParts().add(part);
                 break;
             case "unsave":
+                logger.debug("UnSaved");
                 user.getParts().remove(part);
                 break;
             case "remove":

@@ -99,6 +99,8 @@ public class Auth extends HttpServlet {
             try {
                 TokenResponse tokenResponse = getToken(authRequest);
                 user = validate(tokenResponse);
+
+                //Adding user to session and getting zip code
                 if (user != null) {
                     HttpSession session = req.getSession();
                     WeatherDao weatherDao = new WeatherDao();
@@ -195,6 +197,7 @@ public class Auth extends HttpServlet {
         // Verify the token
         DecodedJWT jwt = verifier.verify(tokenResponse.getIdToken());
 
+        //Adding user to database if needed
         GenericDao<User> userDao = new GenericDao<>(User.class);
         User user = null;
 
