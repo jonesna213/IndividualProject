@@ -187,8 +187,13 @@ Tasks Completed:
 
 ### Week 16
 
-12/14/2022 - 30 mins
+12/14/2022 - 30 minutes
 
 Tasks Completed:
  * Went through all code and made sure comments were there
- * Started working on bug where when searching something and clicking the save/unsave button. it removes the parts variable...
+ * Started working on bug where when searching something and clicking the save/un-save button. it removes the parts variable...
+
+12/16/2022 - 30 minutes
+
+Tasks Completed:
+ * Fixed save/un-save bug

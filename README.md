@@ -51,3 +51,4 @@ So, my goal is to get as many as possible and keep expanding it even after class
 ### [Journal](Journal.md)
 ### [ERD](DesignDocuments/ERD.md)
 ### [Link to Presentation](https://youtu.be/1OLS7qOrUlU)
+### [Link to project on aws](http://hondaautoparts-env-1.eba-hmnmm82m.us-east-1.elasticbeanstalk.com/)

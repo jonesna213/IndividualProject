@@ -77,7 +77,6 @@
                     </c:forEach>
                 </div>
                 <c:if test="${searchedFor != null}" >
-                    <c:remove var="parts" scope="session"/>
                     <c:remove var="searchedFor" scope="session"/>
                 </c:if>
             </c:if>
